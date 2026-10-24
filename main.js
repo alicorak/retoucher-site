@@ -2,14 +2,14 @@
 const PROMPT = `Set up Retoucher for me. It lets me leave notes on my Figma layers that you pick up, apply in the Figma file and answer in a panel inside Figma.
 
 1. Install the Retoucher agent plugin for the agent you are:
-   - Claude Code: run \`claude plugin install figma-annotate --marketplace alicorak/figma-annotate\`
-   - Codex: run \`codex plugin marketplace add alicorak/figma-annotate\`, then install it from /plugins and tell me to trust its hooks once
-   - Cursor: run \`git clone https://github.com/alicorak/figma-annotate.git ~/.figma-annotate-plugin\` and \`mkdir -p ~/.cursor/plugins/local && ln -s ~/.figma-annotate-plugin ~/.cursor/plugins/local/figma-annotate\`, then tell me to restart Cursor
+   - Claude Code: run \`claude plugin install retoucher --marketplace alicorak/retoucher\`
+   - Codex: run \`codex plugin marketplace add alicorak/retoucher\`, then install it from /plugins and tell me to trust its hooks once
+   - Cursor: run \`git clone https://github.com/alicorak/retoucher.git ~/.retoucher-plugin\` and \`mkdir -p ~/.cursor/plugins/local && ln -s ~/.retoucher-plugin ~/.cursor/plugins/local/retoucher\`, then tell me to restart Cursor
 2. Check that Node.js 18 or newer is installed and that the Figma MCP server is connected. If either is missing, tell me exactly how to fix it.
 3. Tell me to open the Retoucher plugin in Figma (Plugins → Retoucher).
-4. Start watching my Figma notes: in Claude Code run /figma-annotate:watch, in Codex or Cursor use the watch-figma-notes skill.
+4. Start watching my Figma notes: in Claude Code run /retoucher:watch, in Codex or Cursor use the watch-figma-notes skill.
 
-Setup details: https://github.com/alicorak/figma-annotate#readme`;
+Setup details: https://github.com/alicorak/retoucher#readme`;
 
 const toast = document.querySelector('.toast');
 let toastTimer;
