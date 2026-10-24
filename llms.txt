@@ -1,0 +1,24 @@
+# Retoucher
+
+> Leave notes on your Figma layers. Claude Code, Codex or Cursor picks them up, edits the Figma file through the Figma MCP, shows its steps live, and asks its questions and permission prompts in the same panel inside Figma.
+
+Retoucher has two parts: an agent plugin (starts a local bridge on localhost:4747 and teaches the agent how to handle notes) and a Figma plugin (the panel the designer writes notes in). Everything stays on the designer's computer.
+
+## Setup prompt
+
+Set up Retoucher for me. It lets me leave notes on my Figma layers that you pick up, apply in the Figma file and answer in a panel inside Figma.
+
+1. Install the Retoucher agent plugin for the agent you are:
+   - Claude Code: run `claude plugin install figma-annotate --marketplace alicorak/figma-annotate`
+   - Codex: run `codex plugin marketplace add alicorak/figma-annotate`, then install it from /plugins and tell me to trust its hooks once
+   - Cursor: run `git clone https://github.com/alicorak/figma-annotate.git ~/.figma-annotate-plugin` and `mkdir -p ~/.cursor/plugins/local && ln -s ~/.figma-annotate-plugin ~/.cursor/plugins/local/figma-annotate`, then tell me to restart Cursor
+2. Check that Node.js 18 or newer is installed and that the Figma MCP server is connected. If either is missing, tell me exactly how to fix it.
+3. Tell me to open the Retoucher plugin in Figma (Plugins → Retoucher).
+4. Start watching my Figma notes: in Claude Code run /figma-annotate:watch, in Codex or Cursor use the watch-figma-notes skill.
+
+Setup details: https://github.com/alicorak/figma-annotate#readme
+
+## Links
+
+- [Source and docs](https://github.com/alicorak/figma-annotate#readme)
+- [How the agent handles a note](https://github.com/alicorak/figma-annotate/blob/main/skills/handle-figma-notes/SKILL.md)

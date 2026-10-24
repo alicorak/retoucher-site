@@ -1,1 +1,326 @@
-<!doctype html><meta charset="utf-8"><title>Retoucher</title><p>Retoucher, coming soon.</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retoucher — Leave notes in Figma. Your agent does the work.</title>
+  <meta name="description" content="Leave notes on your Figma layers. Claude Code, Codex or Cursor picks them up, edits the file and answers in the same panel.">
+  <meta property="og:title" content="Retoucher">
+  <meta property="og:description" content="Leave notes in Figma. Your agent does the work.">
+  <meta property="og:url" content="https://retoucher.alicorak.com/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Geist:wght@400;500;600;700&family=Geist+Mono&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+
+  <header class="hero">
+    <h1>Leave notes in Figma.<br>Your agent does the work.</h1>
+    <p class="hero-sub">Claude Code, Codex or Cursor,<br>in your Figma file.</p>
+    <div class="ctas">
+      <button class="btn btn-dark" type="button" data-copy="prompt">
+        <img src="assets/copy.svg" width="16" height="16" alt="">
+        <span data-label>Onboard your agent</span>
+      </button>
+      <a class="btn btn-light" href="#start">
+        <img src="assets/figma.svg" width="16" height="16" alt="">
+        <span>Get the Figma plugin</span>
+      </a>
+    </div>
+    <div class="meta">
+      <div class="works">
+        <span class="gray">Works with</span>
+        <span class="agent"><img src="assets/logo-claude.svg" width="14" height="14" alt="">Claude Code</span>
+        <span class="agent"><img src="assets/logo-openai.svg" width="14" height="14" alt="">Codex</span>
+        <span class="agent"><img src="assets/logo-cursor.svg" width="14" height="14" alt="">Cursor</span>
+      </div>
+      <div>Free<span class="gray"> · Open source</span></div>
+    </div>
+  </header>
+
+  <section class="carousel" aria-label="How it works">
+    <div class="track" tabindex="0">
+
+      <article class="slide" data-caption-title="Note." data-caption="Point at it, write it, send it." data-focus="panel">
+        <div class="stage">
+          <div class="fwin">
+            <div class="fwin-bar"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="fwin-design">
+              <span class="d-brand">Morning</span>
+              <span class="d-nav"><span>Menu</span><span>Visit</span><span>Shop</span></span>
+              <p class="d-head">Slow mornings,<br>good coffee.</p>
+              <span class="d-cta">Order ahead <img src="assets/arrow-right.svg" width="12" height="12" alt=""></span>
+              <div class="sel"><i></i><i></i><i></i><i></i></div>
+              <span class="badge">1</span>
+            </div>
+          </div>
+          <p class="hand hand-note">make it bolder,<br>in our brand font</p>
+          <img class="hand-arrow" src="assets/hand-arrow.svg" width="120" height="70" alt="">
+          <div class="panel">
+            <div class="panel-head"><span class="p-title">Retoucher</span><span class="status"><i class="dot ok"></i>Claude ready</span></div>
+            <div class="panel-notes">
+              <div class="note-top"><span>#12 · Headline</span><span class="pill pill-working"><i class="dot"></i>Working</span></div>
+              <p class="note-text">Set the headline in KMR Waldenburg and make it a bit bolder.</p>
+              <ul class="steps">
+                <li class="done"><img src="assets/check-faint.svg" width="14" height="14" alt="">Reading the headline</li>
+                <li class="done"><img src="assets/check-faint.svg" width="14" height="14" alt="">Finding KMR Waldenburg on your computer</li>
+                <li><img class="spin" src="assets/loader.svg" width="14" height="14" alt="">Changing 1 text layer</li>
+              </ul>
+              <div class="perm">
+                <span class="mono">Claude asks for permission</span>
+                <strong>Edit the Figma file</strong>
+                <div class="perm-actions"><span class="pbtn">Decline</span><span class="pbtn-group"><span class="pbtn">Always allow</span><span class="pbtn dark">Allow once</span></span></div>
+              </div>
+            </div>
+            <div class="composer"><div class="field"><span class="ph">What should change?</span><span class="send">Send</span></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="slide" data-caption-title="Approve." data-caption="Allow once, always, or decline." data-focus="center">
+        <div class="stage">
+          <div class="frag frag-xl">
+            <div class="note-top"><span>#12 · Headline</span><span class="pill pill-working"><i class="dot"></i>Working</span></div>
+            <p class="note-text">Set the headline in KMR Waldenburg and make it a bit bolder.</p>
+            <div class="perm">
+              <span class="mono">Claude asks for permission</span>
+              <strong>Edit the Figma file</strong>
+              <div class="perm-actions"><span class="pbtn">Decline</span><span class="pbtn-group"><span class="pbtn">Always allow</span><span class="pbtn dark">Allow once</span></span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <div class="carousel-foot">
+      <p class="caption"><strong data-cap-title>Note.</strong> <span data-cap>Point at it, write it, send it.</span></p>
+      <div class="arrows">
+        <button type="button" class="arrow" data-dir="-1" aria-label="Previous"><img src="assets/chevron-left.svg" width="16" height="16" alt=""></button>
+        <button type="button" class="arrow" data-dir="1" aria-label="Next"><img src="assets/chevron-right.svg" width="16" height="16" alt=""></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><h2>Notes that land where you point</h2><p>Point at it. Write it. Send it.</p></div>
+    <div class="cards">
+
+      <article class="card">
+        <h3>Notes on layers</h3><p class="line">Write it like a comment.</p>
+        <div class="art" style="--top:88px">
+          <div class="frag frag-tight">
+            <div class="field"><span>Use <span class="mention">@color/brand</span> for the price</span><span class="send">Send</span></div>
+          </div>
+          <div class="menu" style="left:16px;top:85px">
+            <span class="menu-head mono">Variables</span>
+            <span class="menu-row on"><i style="background:#1f78ff"></i>color/brand</span>
+            <span class="menu-row"><i style="background:#111"></i>color/ink</span>
+            <span class="menu-row"><i style="background:#f6f6f5"></i>color/paper</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Areas and pins</h3><p class="line">Drag an area or drop a pin.</p>
+        <div class="art" style="--top:92px">
+          <div class="shot">
+            <span class="s-brand">Morning</span>
+            <span class="s-nav"><span>Menu</span><span>Visit</span><span>Shop</span></span>
+            <p class="s-head">Slow mornings,<br>good coffee.</p>
+            <div class="area"></div>
+          </div>
+          <span class="pin" style="left:299px;top:36px">1</span>
+          <span class="bubble" style="left:190px;top:34px">less glare here</span>
+          <span class="pin" style="left:152px;top:106px">2</span>
+          <span class="bubble" style="left:180px;top:104px">bolder</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Your own fonts</h3><p class="line">Brand fonts just work.</p>
+        <div class="art" style="--top:92px">
+          <div class="fonts">
+            <div class="fonts-search"><img src="assets/search-gray.svg" width="14" height="14" alt="">Search fonts</div>
+            <div class="font-row"><span style="font-size:16px">Inter</span></div>
+            <div class="font-row on"><span class="f-kmr">KMR Waldenburg</span><span class="f-right"><span class="local">Local</span><img src="assets/check-blue.svg" width="15" height="15" alt=""></span></div>
+            <div class="font-row"><span class="f-druk">DRUK WIDE</span><span class="local">Local</span></div>
+            <div class="font-row"><span class="f-gt">GT Pressura Mono</span><span class="local">Local</span></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><h2>Stay in Figma while it works</h2><p>Nothing changes without a way back.</p></div>
+    <div class="cards">
+
+      <article class="card">
+        <h3>Live steps</h3><p class="line">See it work, as it goes.</p>
+        <div class="art" style="--top:96px">
+          <div class="frag">
+            <div class="note-top"><span>#12 · Headline</span><span class="pill pill-working"><i class="dot"></i>Working</span></div>
+            <p class="note-text">Set the headline in KMR Waldenburg and make it a bit bolder.</p>
+            <ul class="steps">
+              <li class="done"><img src="assets/check-faint.svg" width="14" height="14" alt="">Reading the headline</li>
+              <li class="done"><img src="assets/check-faint.svg" width="14" height="14" alt="">Finding KMR Waldenburg on your computer</li>
+              <li><img class="spin" src="assets/loader.svg" width="14" height="14" alt="">Changing 1 text layer</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Questions and plans</h3><p class="line">Answer in the panel.</p>
+        <div class="art" style="--top:88px">
+          <div class="frag">
+            <div class="note-top"><span>#14 · Hero</span><span class="pill pill-warn"><i class="dot"></i>Needs answer</span></div>
+            <div class="perm">
+              <span class="mono">Claude asks you</span>
+              <strong>Which headline size?</strong>
+              <span class="opt on"><i></i>48 pt · one step down</span>
+              <span class="opt"><i></i>40 pt · two steps down</span>
+              <div class="opt-actions"><span class="pbtn">Skip</span><span class="pbtn dark">Send answer</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Undo</h3><p class="line">One click back.</p>
+        <div class="art" style="--top:96px">
+          <div class="frag">
+            <div class="note-top"><span>#11 · Pricing card</span><span class="pill pill-ok"><i class="dot"></i>Done</span></div>
+            <div class="ba">
+              <div><div class="ba-box"><span class="ba-chip">Slow mornings</span></div><span class="mono faint">Before</span></div>
+              <div><div class="ba-box"><span class="ba-chip bold">Slow mornings</span></div><span class="mono faint">After</span></div>
+            </div>
+            <div><span class="undo"><img src="assets/rotate-ccw.svg" width="14" height="14" alt="">Undo</span></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><h2>Explore, then approve</h2><p>Directions, references and a say in every change.</p></div>
+    <div class="cards">
+
+      <article class="card">
+        <h3>Versions</h3><p class="line">Two to four directions, side by side.</p>
+        <div class="art" style="--top:96px">
+          <div class="tiles">
+            <div class="tile v1"><span class="t-brand">Morning</span><p>Slow<br>mornings</p><i></i></div>
+            <div class="tile v2"><span class="t-brand">Morning</span><p>Slow<br>mornings</p><i></i></div>
+            <div class="tile v3"><span class="t-brand">Morning</span><p>SLOW<br>MORNINGS</p><i></i></div>
+          </div>
+          <div class="tile-labels"><span class="mono gray">v1</span><span class="mono picked">v2 <b>Picked</b></span><span class="mono gray">v3</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>References</h3><p class="line">Matching screens, from any MCP.</p>
+        <div class="art" style="--top:92px">
+          <div class="tiles">
+            <div class="phone ph1"><span class="p-time">9:41</span><i class="p-bat"></i><p>WEEK 1.<br>WELCOME</p><i class="p-btn"></i></div>
+            <div class="phone ph2"><span class="p-time">9:41</span><i class="p-bat"></i><p>Eat<br>Get<br>Pay</p><i class="p-btn"></i></div>
+            <div class="phone ph3"><span class="p-time">9:41</span><i class="p-bat"></i><p>Let’s set<br>up Flow</p><i class="p-btn"></i></div>
+          </div>
+          <span class="via">via MCP <img src="assets/arrow-up-right.svg" width="11" height="11" alt=""></span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Approve</h3><p class="line">Allow once, always, or decline.</p>
+        <div class="art" style="--top:96px">
+          <div class="frag">
+            <div class="note-top"><span>#12 · Headline</span><span class="pill pill-working"><i class="dot"></i>Working</span></div>
+            <p class="note-text">Set the headline in KMR Waldenburg and make it a bit bolder.</p>
+            <div class="perm">
+              <span class="mono">Claude asks for permission</span>
+              <strong>Edit the Figma file</strong>
+              <div class="perm-actions"><span class="pbtn">Decline</span><span class="pbtn-group"><span class="pbtn">Always allow</span><span class="pbtn dark">Allow once</span></span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec sec-grid">
+    <h2>Everything else</h2>
+    <ul class="grid">
+      <li><img src="assets/at.svg" width="20" height="20" alt=""><strong>@mentions</strong><span>Colours, styles, components.</span></li>
+      <li><img src="assets/library.svg" width="20" height="20" alt=""><strong>Your design system</strong><span>One library, or this file only.</span></li>
+      <li><img src="assets/cpu.svg" width="20" height="20" alt=""><strong>Model and skill</strong><span>Pick one for each note.</span></li>
+      <li><img src="assets/file.svg" width="20" height="20" alt=""><strong>Whole file</strong><span>One note across every page.</span></li>
+      <li><img src="assets/list.svg" width="20" height="20" alt=""><strong>Batches</strong><span>Many notes, in order or at once.</span></li>
+      <li><img src="assets/clip.svg" width="20" height="20" alt=""><strong>Photos and files</strong><span>Drop, paste or attach.</span></li>
+      <li><img src="assets/target.svg" width="20" height="20" alt=""><strong>Several targets</strong><span>Layers from any page, one note.</span></li>
+      <li><img src="assets/chat.svg" width="20" height="20" alt=""><strong>Talk while it works</strong><span>Add to a note mid-task.</span></li>
+      <li><img src="assets/cmd.svg" width="20" height="20" alt=""><strong>Quick action</strong><span>⌘/ without opening the panel.</span></li>
+      <li><img src="assets/comment.svg" width="20" height="20" alt=""><strong>Figma comments</strong><span>Apply them, or plan from them.</span></li>
+      <li><img src="assets/pin.svg" width="20" height="20" alt=""><strong>Canvas markers</strong><span>Each note shows on its layers.</span></li>
+      <li><img src="assets/pointer.svg" width="20" height="20" alt=""><strong>Select to find</strong><span>Select a layer, see its note.</span></li>
+      <li><img src="assets/image.svg" width="20" height="20" alt=""><strong>Pictures in replies</strong><span>References come back as images.</span></li>
+      <li><img src="assets/lock.svg" width="20" height="20" alt=""><strong>Stays on your computer</strong><span>Notes never leave your machine.</span></li>
+      <li><span class="logos"><img src="assets/logo-claude.svg" width="18" height="18" alt=""><img src="assets/logo-openai.svg" width="18" height="18" alt=""><img src="assets/logo-cursor.svg" width="18" height="18" alt=""></span><strong>Three agents</strong><span>Claude Code, Codex or Cursor.</span></li>
+    </ul>
+  </section>
+
+  <section class="sec" id="start">
+    <div class="sec-head"><h2>Start in Figma</h2><p>Copy a prompt. Open the plugin.</p></div>
+    <div class="cards cards-2">
+
+      <article class="card card-tall">
+        <h3>Onboard your agent</h3><p class="line">Paste it into Claude Code, Codex or Cursor.</p>
+        <div class="setup">
+          <div class="setup-head"><span>Setup prompt</span><button class="mini dark" type="button" data-copy="prompt"><span data-label>Copy setup prompt</span></button></div>
+          <p class="mono gray">Set up Retoucher for me: install its plugin, check that Node.js and the Figma connection are ready, then watch my Figma notes.</p>
+        </div>
+        <ul class="reply">
+          <li><img src="assets/check.svg" width="14" height="14" alt="">Retoucher installed</li>
+          <li><img src="assets/check.svg" width="14" height="14" alt="">Figma connected</li>
+          <li><img src="assets/check.svg" width="14" height="14" alt="">Watching your notes</li>
+        </ul>
+      </article>
+
+      <article class="card card-tall">
+        <h3>Get the Figma plugin</h3><p class="line">Find Retoucher in Figma’s plugins.</p>
+        <div class="fmenu">
+          <div class="fmenu-search"><img src="assets/search-white.svg" width="14" height="14" alt="">retou</div>
+          <span class="fmenu-row on">Retoucher</span>
+          <span class="fmenu-row">Find more plugins…</span>
+          <span class="fmenu-row">Development</span>
+        </div>
+        <div class="mini-panel">
+          <div class="mini-head"><span>Retoucher</span><span class="status"><i class="dot ok"></i>Claude ready</span></div>
+          <div class="field"><span class="ph">What should change?</span><span class="send small">Send</span></div>
+        </div>
+        <p class="hand hand-canvas">right next to your canvas</p>
+      </article>
+
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot-brand"><strong>Retoucher</strong><span>© 2026 · MIT</span></div>
+    <nav class="foot-cols">
+      <div><strong>Product</strong><a href="#">Overview</a><a href="https://github.com/alicorak/figma-annotate/releases">Changelog</a></div>
+      <div><strong>Agents</strong><a href="https://github.com/alicorak/figma-annotate#1-agent-plugin">Claude Code</a><a href="https://github.com/alicorak/figma-annotate#1-agent-plugin">Codex</a><a href="https://github.com/alicorak/figma-annotate#1-agent-plugin">Cursor</a></div>
+      <div><strong>Resources</strong><a href="#start">Getting started</a><a href="https://github.com/alicorak/figma-annotate#readme">Docs</a><a href="llms.txt">llms.txt</a></div>
+      <div><strong>Connect</strong><a href="https://github.com/alicorak/figma-annotate">GitHub</a><a href="https://x.com/alicorak">X (Twitter)</a><a href="https://github.com/alicorak/figma-annotate/issues">Feedback</a></div>
+    </nav>
+  </footer>
+
+</main>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="main.js"></script>
+</body>
+</html>
