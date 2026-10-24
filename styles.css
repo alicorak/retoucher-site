@@ -57,6 +57,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .hero h1, .hero-sub { font: 500 22px/27.5px var(--inter); letter-spacing: -0.01em; }
 .hero-sub { font-weight: 400; color: var(--gray); margin-top: 8px; }
+.inl { white-space: nowrap; }
+.inl img { display: inline-block; width: 20px; height: 20px; margin-right: 6px; vertical-align: -3px; }
 .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
@@ -408,6 +410,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 @media (max-width: 719px) {
   .hero { margin-top: 64px; }
+  .br-wide { display: none; }
   .carousel { margin-top: 44px; }
   .slide { border-radius: 18px; }
   .carousel-foot { margin-top: 10px; }
