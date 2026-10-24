@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alicorak.github.io/retoucher-site/sitemap.xml
