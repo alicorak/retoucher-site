@@ -1,6 +1,6 @@
 # Retoucher
 
-> Leave notes on your Figma layers. Claude Code, Codex or Cursor picks them up, edits the Figma file through the Figma MCP, shows its steps live, and asks its questions and permission prompts in the same panel inside Figma.
+> Your coding agent, inside Figma. Leave notes on your Figma layers. Claude Code, Codex or Cursor picks them up, edits the Figma file through the Figma MCP, shows its steps live, and asks its questions and permission prompts in the same panel inside Figma.
 
 Retoucher has two parts: an agent plugin (starts a local bridge on localhost:4747 and teaches the agent how to handle notes) and a Figma plugin (the panel the designer writes notes in). Everything stays on the designer's computer.
 

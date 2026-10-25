@@ -383,17 +383,19 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ── Footer ───────────────────────────────────────────── */
 .foot {
-  width: var(--container); margin: 0 auto; padding: 48px 0 80px; border-top: 1px solid var(--border);
-  display: flex; gap: 16px; align-items: flex-start; font: 400 14px/20px var(--inter);
+  width: var(--container); margin: 0 auto; padding: 48px 0 48px; border-top: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 80px; font: 400 14px/20px var(--inter);
 }
-.foot-brand { flex: 1; display: flex; flex-direction: column; gap: 8px; }
-.foot-brand strong { font: 500 16px/20px var(--inter); }
-.foot-brand span { color: var(--gray); }
-.foot-cols { flex: 1; display: flex; }
-.foot-cols div { flex: 1; display: flex; flex-direction: column; gap: 12px; }
-.foot-cols strong { font-weight: 500; }
-.foot-cols a { color: var(--gray); transition: color 160ms ease; }
-.foot-cols a:hover { color: var(--text); }
+.foot-cta { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.foot-cta h2 { font: 500 20px/24px var(--inter); letter-spacing: -0.01em; }
+.ctas-left { justify-content: flex-start; }
+.foot-bar { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.foot-brand { display: inline-flex; align-items: center; gap: 8px; }
+.foot-brand img { border-radius: 5px; }
+.foot-brand strong { font-weight: 500; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.foot-links a { color: var(--gray); transition: color 160ms ease; }
+.foot-links a:hover { color: var(--text); }
 
 /* ── Toast ────────────────────────────────────────────── */
 .toast {
@@ -409,8 +411,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .cards { grid-template-columns: repeat(2, 1fr); }
   .cards-2 { grid-template-columns: 1fr; }
   .grid { grid-template-columns: repeat(3, 1fr); }
-  .foot { flex-direction: column; gap: 32px; }
-  .foot-cols { width: 100%; }
 }
 @media (max-width: 719px) {
   :root { --section-top: 80px; }
@@ -427,9 +427,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .art-plugin { width: 325px; height: 240px; }
   .mini-panel { left: 45px; top: 104px; }
   .hand-canvas { left: 112px; top: 226px; }
-  .foot-cols { flex-wrap: wrap; row-gap: 32px; }
-  .foot-cols div { flex: 0 0 50%; }
-  .foot { padding-bottom: 48px; }
+  .foot { gap: 48px; }
+  .foot-cta { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .foot-bar { flex-direction: column; align-items: flex-start; gap: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
