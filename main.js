@@ -6,7 +6,7 @@ const PROMPT = `Set up Retoucher for me. It lets me leave notes on my Figma laye
    - Codex: run \`codex plugin marketplace add alicorak/retoucher\`, then install it from /plugins and tell me to trust its hooks once
    - Cursor: run \`git clone https://github.com/alicorak/retoucher.git ~/.retoucher-plugin\` and \`mkdir -p ~/.cursor/plugins/local && ln -s ~/.retoucher-plugin ~/.cursor/plugins/local/retoucher\`, then tell me to restart Cursor
 2. Check that Node.js 18 or newer is installed and that the Figma MCP server is connected. If either is missing, tell me exactly how to fix it.
-3. Add the Retoucher Figma plugin. It's waiting for Figma Community review, so it comes with the agent plugin: get the path of its manifest (Claude Code: \`retoucher figma-plugin\`, or \`node <plugin folder>/bridge/cli.mjs figma-plugin\`; Codex and Cursor: the \`figma_plugin_path\` tool), show me that path and tell me to import it in the Figma desktop app: Plugins → Development → Import plugin from manifest…, then open it from Plugins → Development → Retoucher.
+3. Tell me to add the Retoucher plugin in Figma from https://www.figma.com/community/plugin/1696122599848660328/retoucher and open it (Plugins → Retoucher).
 4. Start watching my Figma notes: in Claude Code run /retoucher:watch, in Codex or Cursor use the watch-figma-notes skill.
 
 Setup details: https://github.com/alicorak/retoucher#readme`;
