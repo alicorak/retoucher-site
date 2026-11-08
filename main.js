@@ -113,3 +113,13 @@ track.addEventListener('keydown', e => {
 window.addEventListener('resize', layout);
 layout();
 document.fonts?.ready.then(layout);
+
+// Feature icons: play once per pointer enter, always to the end, so leaving a cell never cuts the motion.
+const canPlay = matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+document.querySelectorAll('.grid li').forEach(li => {
+  li.addEventListener('pointerenter', () => {
+    if (!canPlay.matches || li.classList.contains('play')) return;
+    li.classList.add('play');
+    Promise.allSettled(li.getAnimations({ subtree: true }).map(a => a.finished)).then(() => li.classList.remove('play'));
+  });
+});

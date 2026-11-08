@@ -26,6 +26,7 @@
   --mono: "Geist Mono", ui-monospace, monospace;
   --hand: "Caveat", cursive;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   --shadow-lift: 0 10px 28px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-tile: 0 8px 22px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -352,6 +353,44 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .grid strong { font-weight: 500; }
 .grid span { color: var(--gray); }
 .grid .logos { display: flex; gap: 8px; height: 20px; align-items: center; }
+
+/* icon motion: plays once when the pointer enters a cell (main.js adds .play) */
+.ic { flex: none; overflow: visible; }
+.ic * { transform-box: fill-box; transform-origin: center; }
+.play .ic .d, .play .ic .fold { stroke-dasharray: 1; animation: ic-draw 0.7s var(--ease-out) both; }
+.play .ic-at .d:nth-of-type(2) { animation-delay: 60ms; }
+.play .ic-library path { animation: ic-lift 0.5s var(--ease-in-out) both; }
+.play .ic-library .b2 { animation-delay: 60ms; } .play .ic-library .b3 { animation-delay: 120ms; } .play .ic-library .b4 { animation-delay: 180ms; }
+.play .ic-cpu .core { animation: ic-squeeze 0.6s var(--ease-in-out) both; }
+.play .ic-cpu .pins { animation: ic-blink 0.6s var(--ease-in-out) both; }
+.play .ic-file { animation: ic-lift 0.6s var(--ease-in-out) both; }
+.ic .row1, .ic .row2, .ic .row3 { transform-origin: left center; }
+.play .ic-list [class^=row] { animation: ic-slide 0.45s var(--ease-out) both; }
+.play .ic-list .row2 { animation-delay: 70ms; } .play .ic-list .row3 { animation-delay: 140ms; }
+.play .ic-clip { animation: ic-wiggle 0.7s var(--ease-in-out) both; }
+.play .ic-target path { animation: ic-ring 0.55s var(--ease-in-out) both; }
+.play .ic-target .r2 { animation-delay: 80ms; } .play .ic-target .r3 { animation-delay: 160ms; }
+.ic-chat, .ic-comment { transform-origin: 20% 90%; }
+.play .ic-chat, .play .ic-comment { animation: ic-wiggle 0.6s var(--ease-in-out) both; }
+.play .ic-pin { animation: ic-drop 0.7s var(--ease-in-out) both; }
+.play .ic-pointer { animation: ic-click 0.5s var(--ease-in-out) both; }
+.play .ic-minimize .in-a { animation: ic-in-a 0.6s var(--ease-in-out) both; }
+.play .ic-minimize .in-b { animation: ic-in-b 0.6s var(--ease-in-out) both; }
+.play .ic-lock .shackle { animation: ic-open 0.7s var(--ease-in-out) both; }
+.play .logos .ic { animation: ic-lift 0.5s var(--ease-in-out) both; }
+.play .logos .ic:nth-child(2) { animation-delay: 70ms; } .play .logos .ic:nth-child(3) { animation-delay: 140ms; }
+@keyframes ic-draw { from { stroke-dashoffset: 1; opacity: 0.2; } to { stroke-dashoffset: 0; opacity: 1; } }
+@keyframes ic-lift { 50% { transform: translateY(-3px); } }
+@keyframes ic-squeeze { 45% { transform: scale(0.7); } }
+@keyframes ic-blink { 45% { opacity: 0.2; } }
+@keyframes ic-slide { from { transform: translateX(-4px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes ic-wiggle { 30% { transform: rotate(-10deg); } 65% { transform: rotate(6deg); } }
+@keyframes ic-ring { 50% { transform: scale(1.14); } }
+@keyframes ic-drop { 35% { transform: translateY(-4px); } 70% { transform: translateY(0); } 85% { transform: translateY(-1px); } }
+@keyframes ic-click { 45% { transform: translate(2px, 2px) scale(0.88); } }
+@keyframes ic-in-a { 50% { transform: translate(1px, -1px); } }
+@keyframes ic-in-b { 50% { transform: translate(-1px, 1px); } }
+@keyframes ic-open { 40%, 60% { transform: translateY(-2.5px); } }
 
 /* ── Start in Figma ───────────────────────────────────── */
 #start { scroll-margin-top: 40px; }
