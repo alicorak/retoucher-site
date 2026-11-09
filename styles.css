@@ -80,6 +80,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .btn-dark:hover { background: #2a2a2a; }
 .btn-soft { background: var(--surface); }
 .btn-soft:hover { background: #ececea; }
+.hero-demo {
+  width: 100%; aspect-ratio: 16 / 9; margin-top: 16px; overflow: hidden;
+  border-radius: 20px; background: #f0f0f0;
+}
+.hero-video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* ── Carousel ─────────────────────────────────────────── */
 .carousel { padding-top: var(--section-top); }
@@ -461,6 +466,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (max-width: 719px) {
   :root { --section-top: 80px; }
   .hero { padding-top: 64px; }
+  .hero-demo { aspect-ratio: 3 / 4; }
   .br-wide { display: none; }
   .slide { border-radius: 20px; }
   .cards, .cards-2 { grid-template-columns: 1fr; margin-top: 32px; }
