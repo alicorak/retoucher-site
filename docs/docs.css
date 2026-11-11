@@ -14,7 +14,7 @@
 .d-top nav a:hover { color: var(--text); }
 
 .d-wrap { width: min(1152px, 100% - 2 * var(--gutter)); margin: 0 auto; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 64px; padding: 48px 0 120px; }
-.d-nav { position: sticky; top: 104px; align-self: start; max-height: calc(100vh - 128px); overflow-y: auto; font: 400 14px/20px var(--inter); }
+.d-nav { position: sticky; top: 104px; align-self: start; max-height: calc(100vh - 128px); overflow-y: auto; margin-left: -10px; padding-left: 10px; font: 400 14px/20px var(--inter); }
 .d-nav ul { display: flex; flex-direction: column; gap: 2px; }
 .d-nav ul ul { margin: 2px 0 8px 10px; padding-left: 10px; border-left: 1px solid var(--border); }
 .d-nav a { display: block; padding: 4px 10px; margin-left: -10px; border-radius: 8px; color: var(--muted); transition: background-color 160ms ease, color 160ms ease; }
