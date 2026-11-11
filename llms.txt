@@ -22,28 +22,11 @@ Set up Retoucher for me. It lets me leave notes on my Figma layers that you pick
 
 ## Docs
 
-- [Get started](https://retoucher.alicorak.com/docs/get-started/): Set it up in a minute.
-- [Your own agent](https://retoucher.alicorak.com/docs/agents/): Claude Code, Codex, Cursor.
-- [Stays on your computer](https://retoucher.alicorak.com/docs/privacy/): Notes stay local.
-- [Notes on layers](https://retoucher.alicorak.com/docs/notes/): Write it like a comment.
-- [Areas and pins](https://retoucher.alicorak.com/docs/areas/): Drag an area or drop a pin.
-- [Several targets](https://retoucher.alicorak.com/docs/targets/): Layers across pages.
-- [Photos and files](https://retoucher.alicorak.com/docs/files/): Drop in screenshots.
-- [@mentions](https://retoucher.alicorak.com/docs/mentions/): Use your variables.
-- [Quick action](https://retoucher.alicorak.com/docs/quick-action/): ⌘/ and type.
-- [Batches](https://retoucher.alicorak.com/docs/batches/): Send a few at once.
-- [Live steps](https://retoucher.alicorak.com/docs/steps/): See it work, as it goes.
-- [Talk while it works](https://retoucher.alicorak.com/docs/talk/): Reply mid-task.
-- [Questions and plans](https://retoucher.alicorak.com/docs/questions/): Answer in the panel.
-- [Approve](https://retoucher.alicorak.com/docs/approve/): Allow once, always, or decline.
-- [Your own fonts](https://retoucher.alicorak.com/docs/fonts/): Brand fonts just work.
-- [Undo](https://retoucher.alicorak.com/docs/undo/): One click back.
-- [Versions](https://retoucher.alicorak.com/docs/versions/): Two to four directions, side by side.
-- [References](https://retoucher.alicorak.com/docs/references/): Matching screens, from any MCP.
-- [Whole page or whole file](https://retoucher.alicorak.com/docs/whole-file/): Every page at once.
-- [Your design system](https://retoucher.alicorak.com/docs/design-system/): Your library, or this file.
-- [Figma comments](https://retoucher.alicorak.com/docs/comments/): Works through them.
-- [Model and skill](https://retoucher.alicorak.com/docs/model-and-skill/): A model per note.
-- [Canvas markers](https://retoucher.alicorak.com/docs/markers/): Notes on the canvas.
-- [Select to find](https://retoucher.alicorak.com/docs/select-to-find/): Click a layer, see its note.
-- [Small mode](https://retoucher.alicorak.com/docs/small-mode/): Shrink it to a bar.
+- [Get started](https://retoucher.alicorak.com/docs/get-started/): Two halves: an agent plugin on your computer and the panel inside Figma. Your agent installs the first one for you.
+- [Your agent & privacy](https://retoucher.alicorak.com/docs/agent-and-privacy/): Retoucher brings no AI of its own, and nothing leaves your computer.
+- [Write a note](https://retoucher.alicorak.com/docs/write-a-note/): Point at something in Figma, say what should change, send.
+- [While it works](https://retoucher.alicorak.com/docs/while-it-works/): Follow along and steer, without leaving Figma.
+- [Results](https://retoucher.alicorak.com/docs/results/): What comes back, and the way back.
+- [Options](https://retoucher.alicorak.com/docs/options/): Everything behind the Options button. The button shows what is switched on.
+- [In Figma](https://retoucher.alicorak.com/docs/in-figma/): Retoucher in the file itself.
+- [Troubleshooting](https://retoucher.alicorak.com/docs/troubleshooting/): The usual cases, and the fix.

@@ -4,14 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Get started · Retoucher Docs</title>
-  <meta name="description" content="Retoucher has two halves: an agent plugin that runs on your computer, and the panel inside Figma. Your agent installs the first one for you.">
+  <meta name="description" content="Two halves: an agent plugin on your computer and the panel inside Figma. Your agent installs the first one for you.">
   <meta property="og:title" content="Get started · Retoucher Docs">
-  <meta property="og:description" content="Retoucher has two halves: an agent plugin that runs on your computer, and the panel inside Figma. Your agent installs the first one for you.">
+  <meta property="og:description" content="Two halves: an agent plugin on your computer and the panel inside Figma. Your agent installs the first one for you.">
   <meta property="og:image" content="https://retoucher.alicorak.com/assets/og.png">
   <link rel="canonical" href="https://retoucher.alicorak.com/docs/get-started/">
   <link rel="icon" href="../../assets/icon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../docs/panel.css">
   <link rel="stylesheet" href="../../docs/docs.css">
 </head>
 <body>
@@ -20,22 +21,92 @@
   <nav><a href="../../docs/get-started/">Get started</a><a href="https://github.com/alicorak/retoucher">GitHub</a><a href="../../">Home</a></nav>
 </header>
 <div class="d-wrap">
-<nav class="d-nav" aria-label="Features"><section><h4>Start</h4><ul><li><a href="../../docs/get-started/" aria-current="page">Get started</a></li><li><a href="../../docs/agents/">Your own agent</a></li><li><a href="../../docs/privacy/">Stays on your computer</a></li></ul></section><section><h4>Write a note</h4><ul><li><a href="../../docs/notes/">Notes on layers</a></li><li><a href="../../docs/areas/">Areas and pins</a></li><li><a href="../../docs/targets/">Several targets</a></li><li><a href="../../docs/files/">Photos and files</a></li><li><a href="../../docs/mentions/">@mentions</a></li><li><a href="../../docs/quick-action/">Quick action</a></li><li><a href="../../docs/batches/">Batches</a></li></ul></section><section><h4>While it works</h4><ul><li><a href="../../docs/steps/">Live steps</a></li><li><a href="../../docs/talk/">Talk while it works</a></li><li><a href="../../docs/questions/">Questions and plans</a></li><li><a href="../../docs/approve/">Approve</a></li></ul></section><section><h4>What it changes</h4><ul><li><a href="../../docs/fonts/">Your own fonts</a></li><li><a href="../../docs/undo/">Undo</a></li><li><a href="../../docs/versions/">Versions</a></li><li><a href="../../docs/references/">References</a></li></ul></section><section><h4>Options</h4><ul><li><a href="../../docs/whole-file/">Whole page or whole file</a></li><li><a href="../../docs/design-system/">Your design system</a></li><li><a href="../../docs/comments/">Figma comments</a></li><li><a href="../../docs/model-and-skill/">Model and skill</a></li></ul></section><section><h4>In Figma</h4><ul><li><a href="../../docs/markers/">Canvas markers</a></li><li><a href="../../docs/select-to-find/">Select to find</a></li><li><a href="../../docs/small-mode/">Small mode</a></li></ul></section></nav>
+<nav class="d-nav" aria-label="Docs"><ul><li><a href="../../docs/get-started/" aria-current="page">Get started</a><ul><li><a href="../../docs/get-started/#setup">Set it up</a></li><li><a href="../../docs/get-started/#status">What the panel says</a></li></ul></li><li><a href="../../docs/agent-and-privacy/">Your agent & privacy</a></li><li><a href="../../docs/write-a-note/">Write a note</a></li><li><a href="../../docs/while-it-works/">While it works</a></li><li><a href="../../docs/results/">Results</a></li><li><a href="../../docs/options/">Options</a></li><li><a href="../../docs/in-figma/">In Figma</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li></ul></nav>
 <main class="d-main">
-  <div><p class="d-eyebrow">Start <a class="d-all" href="../">· All features</a></p><h1>Get started</h1></div>
-  <p class="d-lead">Retoucher has two halves: an agent plugin that runs on your computer, and the panel inside Figma. Your agent installs the first one for you.</p>
-  <div class="demo" data-loop="7500" role="img" aria-label="Demo: Get started"><div class="scene"><div class="s-term"><span class="who">Your agent</span><span class="ok" data-in="700">Retoucher installed</span><span class="ok" data-in="1500">Bridge running on localhost:4747</span><span class="ok" data-in="2300">Figma MCP connected</span><span class="ok" data-in="3100">Figma plugin ready to import</span><span class="ok" data-in="4300">Watching your notes</span></div><div class="s-panel"><div class="s-head"><b>Retoucher</b><span class="status" style="color:var(--muted)" data-out="4300"><i class="dot" style="background:#d6453d"></i>Not connected</span><span class="status" data-in="4300"><img src="../../assets/logo-claude-ok.svg" width="14" height="14" alt="">Ready</span></div><div class="s-notes" style="justify-content:center;text-align:center;color:var(--muted);font-size:13px"><p data-out="4300">Waiting for your agent…</p><p data-in="4500">Select a layer and write what should change.</p></div><div class="s-comp"><div class="s-ctx"><i></i><span>Nothing selected<small>The note is about the page.</small></span><span class="s-add" data-pt="add">+</span></div><div class="field" data-pt="field"><span class="ph">What should change?</span><span class="send" data-pt="send"><img src="../../assets/arrow-up-white.svg" width="20" height="20" alt=""></span></div></div></div></div></div>
-  <section class="d-sec"><div class="d-prompt-head"><h2>Setup prompt</h2><button class="d-copy" type="button" data-copy-from="#prompt">Copy</button></div><pre class="d-prompt" id="prompt">Set up Retoucher for me. It lets me leave notes on my Figma layers that you pick up, apply in the Figma file and answer in a panel inside Figma.
+  <div><p class="d-eyebrow">Docs <a class="d-all" href="../">· All topics</a></p><h1>Get started</h1></div>
+  <p class="d-lead">Two halves: an agent plugin on your computer and the panel inside Figma. Your agent installs the first one for you.</p>
+  
+  <section class="d-feat" id="setup"><h2><a href="#setup">Set it up</a></h2><p class="d-line">Paste the setup prompt into Claude Code, Codex or Cursor. It installs the agent plugin, starts a small bridge on your computer and checks Node.js 18+ and the Figma MCP.</p><div class="d-prompt-head"><b>Setup prompt</b><button class="d-copy" type="button" data-copy-from="#prompt">Copy</button></div><pre class="d-prompt" id="prompt">Set up Retoucher for me. It lets me leave notes on my Figma layers that you pick up, apply in the Figma file and answer in a panel inside Figma.
 
 1. Install the Retoucher agent plugin for the agent you are:
    - Claude Code: run `claude plugin install retoucher --marketplace alicorak/retoucher`
    - Codex: run `codex plugin marketplace add alicorak/retoucher`, then install it from /plugins and tell me to trust its hooks once
    - Cursor: run `git clone https://github.com/alicorak/retoucher.git ~/.retoucher-plugin` and `mkdir -p ~/.cursor/plugins/local &amp;&amp; ln -s ~/.retoucher-plugin ~/.cursor/plugins/local/retoucher`, then tell me to restart Cursor
 2. Check that Node.js 18 or newer is installed and that the Figma MCP server is connected. If either is missing, tell me exactly how to fix it.
-3. Add the Retoucher Figma plugin. It&#x27;s waiting for Figma Community review, so it comes with the agent plugin: get the path of its manifest (Claude Code: `retoucher figma-plugin`, or `node &lt;plugin folder&gt;/bridge/cli.mjs figma-plugin\</pre></section>
-  <section class="d-sec"><h2>How to use it</h2><ol class="d-how"><li><span>Copy the setup prompt below and paste it into Claude Code, Codex or Cursor.</span></li><li><span>Your agent installs the Retoucher agent plugin, starts a small bridge on your computer and checks that Node.js 18+ and the Figma MCP are ready.</span></li><li><span>Add the Figma plugin. It is waiting for Figma Community review, so for now your agent shows you a <code>manifest.json</code> to import in the Figma desktop app: <em>Plugins → Development → Import plugin from manifest…</em></span></li><li><span>Open it from <em>Plugins → Development → Retoucher</em> and paste the file's link once when the panel asks.</span></li><li><span>Start watching: <code>/retoucher:watch</code> in Claude Code, or ask Codex or Cursor to “watch my Figma notes”. The panel says <em>Ready</em>.</span></li></ol></section>
-  <section class="d-sec"><h2>Good to know</h2><ul class="d-know"><li>The panel's top right tells you where things stand: <em>Ready</em> (an agent is watching), <em>Not watching</em> (notes wait until you start watching), <em>Not connected</em> (no agent session is open).</li><li>You need edit access to the Figma files you want to change.</li><li>Stuck? The <a href="https://github.com/alicorak/retoucher#troubleshooting">troubleshooting table</a> covers the usual cases.</li></ul></section>
-  <nav class="d-pn"><span></span><a class="next" href="../agents/"><span>Next</span>Your own agent</a></nav>
+3. Add the Retoucher Figma plugin. It&#x27;s waiting for Figma Community review, so it comes with the agent plugin: get the path of its manifest (Claude Code: `retoucher figma-plugin`, or `node &lt;plugin folder&gt;/bridge/cli.mjs figma-plugin\</pre><div class="demo" data-loop="7500" role="img"><div class="scene" inert><div class="s-term"><span class="who">Your agent</span><span class="ok" data-in="700">Retoucher installed</span><span class="ok" data-in="1500">Bridge running on localhost:4747</span><span class="ok" data-in="2300">Figma MCP connected</span><span class="ok" data-in="3100">Figma plugin ready to import</span><span class="ok" data-in="4300">Watching your notes</span></div><div class="pp s-plugin"><header class="bar">
+  <div class="left"><button class="id-miniBtn icon-btn" data-pt="shrink" type="button" title="Make small"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 10 7-7"/><path d="M20 10h-6V4"/><path d="m3 21 7-7"/><path d="M4 14h6v6"/></svg></button></div>
+  <b>Retoucher</b>
+  <div class="right">
+    <button class="id-conn status ready" type="button" title="Connection"><span class="id-dot dot"></span><svg class="logo" width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M2.74692 9.30708L5.50025 7.763L5.54692 7.62883L5.50025 7.55417H5.36667L4.90583 7.52617L3.332 7.48358L1.96758 7.427L0.64575 7.35583L0.312667 7.28525L0 6.874L0.0320833 6.66867L0.312083 6.48142L0.71225 6.51642L1.59892 6.5765L2.92775 6.66867L3.89142 6.72525L5.32 6.874H5.54692L5.579 6.78242L5.50083 6.72525L5.44075 6.66867L4.06525 5.73767L2.57658 4.753L1.79725 4.186L1.37492 3.89958L1.16258 3.63008L1.07042 3.04208L1.45308 2.62092L1.967 2.65592L2.09825 2.6915L2.61917 3.09167L3.73217 3.95267L5.18525 5.02192L5.39817 5.19925L5.48275 5.13917L5.49383 5.09658L5.39817 4.93675L4.60775 3.50992L3.76425 2.05742L3.38858 1.45542L3.28942 1.09433C3.25163 0.955649 3.23125 0.812801 3.22875 0.669083L3.66508 0.0781667L3.906 0L4.487 0.0781667L4.732 0.2905L5.09367 1.11533L5.67817 2.41558L6.58525 4.18308L6.85125 4.70692L6.993 5.19225L7.04608 5.341H7.13825V5.25583L7.21292 4.26067L7.35117 3.03858L7.48533 1.4665L7.532 1.02317L7.75133 0.492333L8.18708 0.205333L8.52775 0.368667L8.80775 0.76825L8.76867 1.02725L8.60183 2.107L8.27575 3.80042L8.06342 4.93325H8.18708L8.32883 4.79208L8.90342 4.03025L9.86708 2.82625L10.2929 2.34792L10.7887 1.82058L11.1078 1.56917H11.7104L12.1537 2.22775L11.9554 2.90792L11.3347 3.69367L10.8208 4.35983L10.0835 5.3515L9.62267 6.14483L9.66525 6.209L9.77492 6.19733L11.4409 5.84383L12.341 5.6805L13.4149 5.49675L13.9008 5.72308L13.9539 5.9535L13.7626 6.42425L12.614 6.70775L11.2671 6.97725L9.261 7.4515L9.2365 7.469L9.26508 7.50458L10.1687 7.58975L10.5548 7.61075H11.501L13.2627 7.742L13.7235 8.0465L14 8.41867L13.9539 8.70158L13.2452 9.06325L12.2885 8.83633L10.0549 8.3055L9.28958 8.11358H9.18342V8.17775L9.821 8.80075L10.9912 9.85658L12.4547 11.2157L12.5288 11.5529L12.341 11.8183L12.1427 11.7898L10.8564 10.8232L10.36 10.3874L9.2365 9.44242H9.16183V9.54158L9.42083 9.92017L10.7887 11.9741L10.8599 12.6041L10.7607 12.81L10.4061 12.9342L10.0164 12.8631L9.21492 11.7402L8.3895 10.4761L7.72275 9.34267L7.64108 9.38933L7.24792 13.6208L7.06358 13.8367L6.63833 14L6.28425 13.7311L6.09642 13.2953L6.28425 12.4343L6.51117 11.312L6.69492 10.4195L6.86175 9.31117L6.96092 8.9425L6.95392 8.918L6.87225 8.9285L6.03575 10.0759L4.76408 11.7938L3.75725 12.8701L3.51575 12.9657L3.0975 12.7499L3.13658 12.3637L3.3705 12.0202L4.7635 10.2492L5.6035 9.15133L6.146 8.51783L6.1425 8.42567H6.11042L2.41033 10.8267L1.75117 10.9118L1.46708 10.6458L1.50267 10.2107L1.63742 10.0689L2.75042 9.30358L2.74692 9.30708Z"/></svg><span class="id-connText">Ready</span></button>
+  </div>
+</header><button class="id-mini" data-pt="bar" type="button" title="Open Retoucher"><span class="id-miniDot dot wait"></span><span class="id-miniText txt"><b>Retoucher</b></span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/><path d="M9 21H3v-6"/></svg></button><main class="id-list list" data-stick><div class="empty welcome" data-out="4300"><b>Retoucher works with a coding agent on your computer</b><p>Waiting for your agent…</p></div><div class="empty" data-in="4400"><b>No notes yet</b><ol><li>Select layers or a frame on the canvas.</li><li>Write what should change below.</li><li>Send.</li></ol></div></main><footer class="id-composer composer">
+  <div class="id-opts pop opts" hidden>
+    <div class="orow">
+      <span class="lbl" title="Whole file: Claude looks at every page, not only the selection or this page">Applies to</span>
+      <div class="id-scope seg"><button data-v="sel" class="on" type="button">Selection</button><button data-v="file" type="button">Whole file</button></div>
+    </div>
+    <div class="orow">
+      <span class="lbl" title="Claude makes this many different directions side by side and leaves the original as it is">Versions</span>
+      <div class="id-variations seg"><button data-v="1" class="on" type="button">1</button><button data-v="2" type="button">2</button><button data-v="3" type="button">3</button><button data-v="4" type="button">4</button></div>
+    </div>
+    <div class="orow">
+      <span class="lbl">Build with</span>
+      <select class="id-library" title="Which design system Claude builds with"><option value="">Any library</option><option value="local">This file only</option></select>
+    </div>
+    <div class="orow">
+      <span class="lbl" title="Apply: Claude makes the changes the open comment threads ask for. Summarize: Claude groups them into themes and proposes a plan, and changes nothing until you approve it. Needs a Figma token.">Comments</span>
+      <div class="id-comments seg"><button data-v="" class="on" type="button">Off</button><button data-v="apply" type="button">Apply</button><button data-v="summarize" type="button">Summarize</button></div>
+    </div>
+    <div class="id-tokenRow orow tokenRow" hidden>
+      <input class="id-figmaToken" type="password" placeholder="Figma token (figd_…)" autocomplete="off" spellcheck="false" title="Figma → Settings → Security → Personal access tokens, scope File comments: read. Stays on your computer.">
+      <button class="id-tokenSave btn ghost sm" type="button">Save</button>
+    </div>
+    <div class="orow">
+      <span class="lbl" title="Claude first looks for this many matching screens through a references MCP you have connected (Mobbin, for example), puts them next to your selection and shows them here, then makes the change on a copy">References</span>
+      <div class="id-refs seg"><button data-v="" class="on" type="button">Off</button><button data-v="4" type="button">4</button><button data-v="8" type="button">8</button><button data-v="12" type="button">12</button></div>
+    </div>
+    <div class="id-modelRow orow" hidden>
+      <span class="lbl" title="Default: the model of the session that is watching. Another model works on this note as a helper agent.">Model</span>
+      <select class="id-model"><option value="">Session default</option></select>
+    </div>
+    <div class="id-skillRow orow" hidden>
+      <span class="lbl" title="A skill from your Claude Code session that Claude uses for this note">Skill</span>
+      <select class="id-skill"><option value="">None</option></select>
+    </div>
+    <label class="tog" title="Claude looks first, then shows a plan here. Nothing changes until you approve it."><input class="id-planFirst" type="checkbox"> Show a plan first</label>
+    <label class="tog"><input class="id-urgent" type="checkbox"> Urgent</label>
+    <label class="tog"><input class="id-markers" type="checkbox" checked> Show markers on canvas</label>
+  </div>
+
+  <div class="ctx">
+    <div class="id-thumb thumb" style="background:linear-gradient(135deg,#d3d6dc,#e7e7e9)"></div>
+    <div class="txt">
+      <div class="id-tName name">Nothing selected</div>
+      <div class="id-tMeta sub">Select layers or frames, or an area.</div>
+    </div>
+    <button class="id-addSel ib" data-pt="add" type="button" title="Add this selection to the note, then select something else too"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M8 3.5v9M3.5 8h9"/></svg></button>
+    <button class="id-makeArea ib" data-pt="area" type="button" title="Mark areas on a picture of the selected frame (or of what is on screen), like comments"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M2.5 5V3.5a1 1 0 0 1 1-1H5M11 2.5h1.5a1 1 0 0 1 1 1V5M13.5 11v1.5a1 1 0 0 1-1 1H11M5 13.5H3.5a1 1 0 0 1-1-1V11"/><path d="M8 6v4M6 8h4"/></svg></button>
+  </div>
+
+  <div class="id-targets strip" hidden></div>
+
+  <div class="field">
+    <div class="id-mention pop" hidden></div>
+    <div class="id-note ta" data-pt="field"><span class="ta-ph">What should change? Type @ for variables, styles, components</span></div>
+    <div class="id-files strip files" hidden></div>
+    <div class="id-optLine optline" hidden></div>
+    <div class="tools">
+      <button class="id-addFile ib" type="button" title="Attach photos, PDFs, anything. You can also drop or paste them."><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7.5 8.2 12.3a3 3 0 0 1-4.3-4.3L9 2.9a2 2 0 0 1 2.9 2.9L6.8 10.9a1 1 0 0 1-1.5-1.5L10 4.8"/></svg></button>
+      <button class="id-atBtn ib" type="button" title="Mention a variable, style or component"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="8" cy="8" r="2.4"/><path d="M10.4 8v.9a1.7 1.7 0 0 0 3.4 0V8a5.8 5.8 0 1 0-2.3 4.6"/></svg></button>
+      <button class="id-optsBtn ib" data-pt="opts" type="button" aria-expanded="false" title="Options"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M2.5 5h6M12.5 5h1M2.5 11h1M7.5 11h6"/><circle cx="10.5" cy="5" r="1.6"/><circle cx="5.5" cy="11" r="1.6"/></svg><span class="id-optsBadge badge" hidden></span></button>
+      <span class="grow"></span>
+      <span class="id-fileHint muted"></span>
+      <button class="id-queue btn ghost" data-pt="batch" type="button" title="Collect several notes, then send them together (⇧⌘↵)">Batch</button>
+      <button class="id-send btn primary" data-pt="send" data-at="0:off" type="button" title="Send (↵). New line: ⇧↵" aria-label="Send"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"><path d="M4.16667 10 10 4.16667 15.8333 10M10 15.8333V4.16667"/></svg></button>
+    </div>
+  </div>
+</footer></div></div></div><p class="d-how"><span>How</span>Then add the Figma plugin: while it waits for Figma Community review, your agent gives you a <code>manifest.json</code> to import in the Figma desktop app (<em>Plugins → Development → Import plugin from manifest…</em>). Open it, paste the file's link once, and start watching: <code>/retoucher:watch</code> in Claude Code, “watch my Figma notes” in Codex or Cursor.</p></section><section class="d-feat" id="status"><h2><a href="#status">What the panel says</a></h2><p class="d-line">The status at the top right of the panel tells you where things stand.</p><table class="d-table"><thead><tr><th>Panel</th><th>Meaning</th></tr></thead><tbody><tr><td>Ready</td><td>An agent is watching; notes are picked up right away.</td></tr><tr><td>Not watching</td><td>The bridge runs, but no agent watches. Notes wait until you start watching.</td></tr><tr><td>Not connected</td><td>No agent session is open (opening one starts the bridge), or the agent plugin isn't installed.</td></tr><tr><td>Not paired</td><td>Another Figma panel paired first. Ask your agent to run <code>retoucher unpair</code>.</td></tr></tbody></table></section>
+  <nav class="d-pn"><span></span><a class="next" href="../agent-and-privacy/"><span>Next</span>Your agent & privacy</a></nav>
 </main>
 </div>
 <script src="../../timeline.js" defer></script>

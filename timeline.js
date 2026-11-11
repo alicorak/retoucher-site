@@ -3,6 +3,7 @@
 //   data-type="ms"                 its text is typed from that time
 //   data-at="ms:class;ms:-class"   classes added (or removed with -) over time
 //   data-path="ms:x,y;ms:@name;ms:click"  the cursor's moves (to a point or to data-pt=name) and clicks
+//   data-stick                     a scrolling list kept scrolled to its end
 // Docs (.demo): loops while on screen. Home ([data-tl]): rests on its last frame, which is the static
 // illustration, and plays once when the pointer enters its card (on touch screens: once when it scrolls in).
 // With reduced motion nothing plays.
@@ -27,6 +28,8 @@ function timeline(stage) {
     const r = el.getBoundingClientRect(), s = stage.getBoundingClientRect(), k = s.width / stage.offsetWidth;
     return [(r.left - s.left + r.width / 2) / k - 3, (r.top - s.top + r.height / 2) / k - 2]; // the arrow's tip
   };
+  // data-stick: a list that keeps its newest item in view, like the plugin's own list
+  const sticky = [...stage.querySelectorAll('[data-stick]')];
   return t => {
     for (const it of items) {
       if (it.in !== null || it.out !== null) it.el.classList.toggle('shown', (it.in === null || t >= it.in) && (it.out === null || t < it.out));
@@ -35,9 +38,11 @@ function timeline(stage) {
         if (it.el.textContent.length !== n) { it.el.textContent = it.text.slice(0, n); it.el.toggleAttribute('data-filled', n > 0); }
       }
       if (it.at) {
+        // before its first event a class is off if that event adds it, on if it removes it
         const on = new Map();
-        for (const [ms, c] of it.at) if (ms <= t) c.startsWith('-') ? on.set(c.slice(1), false) : on.set(c, true);
-        for (const [, c] of it.at) { const k = c.replace(/^-/, ''); it.el.classList.toggle(k, !!on.get(k)); }
+        for (const [, c] of it.at) { const k = c.replace(/^-/, ''); if (!on.has(k)) on.set(k, c.startsWith('-')); }
+        for (const [ms, c] of it.at) if (ms <= t) on.set(c.replace(/^-/, ''), !c.startsWith('-'));
+        for (const [k, v] of on) it.el.classList.toggle(k, v);
       }
       if (it.path) {
         let pos = null, click = false;
@@ -47,6 +52,7 @@ function timeline(stage) {
         it.el.classList.toggle('down', click);
       }
     }
+    for (const el of sticky) el.scrollTop = el.scrollHeight;
   };
 }
 
