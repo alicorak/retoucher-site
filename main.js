@@ -12,13 +12,19 @@ const PROMPT = `Set up Retoucher for me. It lets me leave notes on my Figma laye
 Setup details: https://github.com/alicorak/retoucher#readme`;
 
 const toast = document.querySelector('.toast');
-let toastTimer;
-function showToast(text) {
-  toast.textContent = text;
+let toastTimer, toastLeft = 0, toastStart = 0;
+const hideToast = () => toast.classList.remove('show');
+function runToast(ms) { toastLeft = ms; toastStart = Date.now(); clearTimeout(toastTimer); toastTimer = setTimeout(hideToast, ms); }
+// Sonner-style: title plus an optional line, 4s on screen, hovering it pauses the timer
+function showToast(title, desc = '', error = false) {
+  toast.querySelector('.t-title').textContent = title;
+  toast.querySelector('.t-desc').textContent = desc;
+  toast.classList.toggle('err', error);
   toast.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+  runToast(4000);
 }
+toast.addEventListener('pointerenter', () => { clearTimeout(toastTimer); toastLeft -= Date.now() - toastStart; });
+toast.addEventListener('pointerleave', () => { if (toast.classList.contains('show')) runToast(Math.max(toastLeft, 1000)); });
 
 async function copyText(text) {
   try {
@@ -43,7 +49,8 @@ for (const btn of document.querySelectorAll('[data-copy="prompt"]')) {
     const ok = await copyText(PROMPT);
     label.textContent = ok ? 'Copied' : original;
     btn.classList.toggle('copied', ok);
-    showToast(ok ? 'Setup prompt copied. Paste it into your agent.' : 'Couldn’t copy. Select the prompt on the page instead.');
+    if (ok) showToast('Setup prompt copied', 'Paste it into Claude Code, Codex or Cursor.');
+    else showToast('Couldn’t copy', 'Select the prompt on the page instead.', true);
     setTimeout(() => { label.textContent = original; btn.classList.remove('copied'); }, 1800);
   });
 }

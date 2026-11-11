@@ -482,14 +482,25 @@ button.card-link { border: 0; padding: 0; background: none; cursor: pointer; }
 .foot-links a { color: var(--gray); transition: color 160ms ease; }
 .foot-links a:hover { color: var(--text); }
 
-/* ── Toast ────────────────────────────────────────────── */
+/* ── Toast (a single Sonner-style toast) ─────────────── */
 .toast {
-  position: fixed; left: 50%; bottom: 24px; z-index: 10; padding: 12px 16px; border-radius: 999px;
-  background: var(--text); color: #fff; font: 500 14px/20px var(--inter);
-  opacity: 0; transform: translate(-50%, 8px) scale(0.97); pointer-events: none;
-  transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
+  position: fixed; left: 50%; bottom: 24px; z-index: 10; width: min(356px, calc(100vw - 32px));
+  display: flex; align-items: flex-start; gap: 10px; padding: 14px 16px;
+  background: #fff; color: var(--text); border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  opacity: 0; transform: translate(-50%, 100%); pointer-events: none;
+  transition: opacity 200ms ease, transform 200ms ease;
 }
-.toast.show { opacity: 1; transform: translate(-50%, 0) scale(1); }
+.toast.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out); }
+.t-ic { flex: none; width: 20px; height: 20px; color: var(--blue); }
+.t-ic svg { display: block; }
+.toast .t-err, .toast.err .t-ok { display: none; }
+.toast.err .t-err { display: block; }
+.toast.err .t-ic { color: var(--gray); }
+.t-body { display: flex; flex-direction: column; gap: 2px; padding-top: 1px; }
+.t-title { font: 500 14px/18px var(--inter); }
+.t-desc { font: 400 13px/18px var(--inter); color: var(--gray); }
+.t-desc:empty { display: none; }
 
 /* ── Smaller screens ──────────────────────────────────── */
 @media (max-width: 1023px) {
@@ -524,5 +535,6 @@ button.card-link { border: 0; padding: 0; background: none; cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .spin { animation: none; }
-  .btn, .mini, .toast { transition: none; }
+  .btn, .mini, .toast, .toast.show { transition: none; }
+  .toast { transform: translate(-50%, 0); }
 }
