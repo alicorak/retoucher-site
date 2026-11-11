@@ -241,7 +241,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .sec-start { padding-bottom: 80px; }
 .card-wide { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; padding-bottom: 24px; }
 .card-wide .card-text { max-width: 300px; }
-.card-more { margin-top: 12px; font: 500 14px/20px var(--inter); color: var(--blue); }
+.card-btn { position: relative; z-index: 6; align-self: flex-start; margin-top: 20px; }
+.card-btn .inv { filter: invert(1); }
+.card-wide:has(> .card-link:hover) .card-btn { background: #2a2a2a; }
 .art-playground { position: absolute; right: 0; bottom: 0; width: 600px; aspect-ratio: 16 / 9; border-top-left-radius: 14px; overflow: hidden; box-shadow: 0 0 0 1px var(--line), 0 12px 32px rgba(0, 0, 0, 0.06); }
 .art-playground img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
