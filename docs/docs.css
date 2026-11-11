@@ -35,13 +35,13 @@
 .d-feat h2 { font: 500 20px/24px var(--inter); letter-spacing: -0.01em; }
 .d-feat h2 a:hover::after { content: ' #'; color: var(--faint); }
 .d-line { font: 400 16px/24px var(--inter); color: var(--text); }
-.d-how { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; }
-.d-how-k { font: 500 13px/18px var(--inter); color: var(--gray); }
-.d-how p { font: 400 15px/22px var(--inter); color: var(--text); }
+.d-callout { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; }
+.d-callout-k { font: 500 13px/18px var(--inter); color: var(--gray); }
+.d-callout p { font: 400 15px/22px var(--inter); color: var(--text); }
 .d-note { font: 400 14px/21px var(--inter); color: var(--gray); }
 .d-main code, .d-main kbd { font: 400 13px/1 var(--mono); padding: 2px 6px; border-radius: 6px; background: var(--surface); color: var(--text); }
 .d-main em { font-style: normal; color: var(--text); font-weight: 500; }
-.d-line a, .d-note a, .d-how a, .d-lead a { color: var(--brand-text); }
+.d-line a, .d-note a, .d-callout a, .d-lead a { color: var(--brand-text); }
 .d-table { width: 100%; border-collapse: collapse; font: 400 15px/22px var(--inter); }
 .d-table th { text-align: left; padding: 8px 12px 8px 0; font: 400 12px/16px var(--mono); text-transform: uppercase; color: var(--gray); border-bottom: 1px solid var(--border); }
 .d-table td { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--muted); }

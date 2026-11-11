@@ -257,7 +257,7 @@ page('get-started', 'Get started', 'Two halves: an agent plugin on your computer
             f'<pre class="d-prompt" id="prompt">{html.escape(prompt_text())}</pre>'),
     S('playground', 'Learn by doing', 'A Figma file of exercises.',
       'Retoucher Playground is a Figma file with five short chapters. Each exercise is a card next to a design: do what the card says in the panel, and your agent changes the design for real.',
-      html_='<div class="d-how"><span class="d-how-k">Try it</span><p>Open <a href="https://www.figma.com/community/file/1702413212702310844/retoucher-playground">Retoucher Playground on Figma Community</a>, duplicate it, and start on page 1 once the panel says Ready.</p></div>'),
+      html_='<div class="d-callout"><span class="d-callout-k">Try it</span><p>Open <a href="https://www.figma.com/community/file/1702413212702310844/retoucher-playground">Retoucher Playground on Figma Community</a>, duplicate it, and start on page 1 once the panel says Ready.</p></div>'),
     S('status', 'What the panel says', 'Ready, not watching, not connected.',
       'The status at the top right of the panel tells you where things stand.',
       html_=table([['Ready', 'An agent is watching; notes are picked up right away.'],
@@ -515,7 +515,7 @@ def shell(title, desc, path, depth, body):
   {FONTS}
   <link rel="stylesheet" href="{up}styles.css">
   <link rel="stylesheet" href="{up}docs/panel.css">
-  <link rel="stylesheet" href="{up}docs/docs.css">
+  <link rel="stylesheet" href="{up}docs/docs.css?v=2">
 </head>
 <body>
 <header class="d-top">
@@ -546,7 +546,7 @@ def section(s):
     if s['demo']:
         parts.append(s['demo'])
     if s['how']:
-        parts.append(f'<div class="d-how"><span class="d-how-k">How to use it</span><p>{s["how"]}</p></div>')
+        parts.append(f'<div class="d-callout"><span class="d-callout-k">How to use it</span><p>{s["how"]}</p></div>')
     if s['note']:
         parts.append(f'<p class="d-note">{s["note"]}</p>')
     return f'<section class="d-feat" id="{s["id"]}">' + ''.join(parts) + '</section>'
