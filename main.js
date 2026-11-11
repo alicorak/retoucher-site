@@ -42,9 +42,15 @@ for (const btn of document.querySelectorAll('[data-copy="prompt"]')) {
   btn.addEventListener('click', async () => {
     const ok = await copyText(PROMPT);
     label.textContent = ok ? 'Copied' : original;
+    btn.classList.toggle('copied', ok);
     showToast(ok ? 'Setup prompt copied. Paste it into your agent.' : 'Couldn’t copy. Select the prompt on the page instead.');
-    setTimeout(() => { label.textContent = original; }, 1800);
+    setTimeout(() => { label.textContent = original; btn.classList.remove('copied'); }, 1800);
   });
+}
+
+// The whole Onboard card copies, through its button so the button shows the result
+for (const proxy of document.querySelectorAll('[data-copy-proxy]')) {
+  proxy.addEventListener('click', () => proxy.closest('.card').querySelector('[data-copy="prompt"]').click());
 }
 
 // Bento illustrations are drawn at 325px; shrink them on narrow cards

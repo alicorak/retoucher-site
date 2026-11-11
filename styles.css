@@ -433,6 +433,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .mini { padding: 8px 12px; border-radius: 999px; font: 500 13px/19px var(--inter); transition: transform 160ms var(--ease-out), background-color 160ms ease; }
 .mini.dark { background: var(--text); color: #fff; }
 .mini.dark:hover { background: #2a2a2a; }
+.copy-btn { display: inline-flex; align-items: center; gap: 6px; }
+.copy-btn .ci { position: relative; width: 14px; height: 14px; }
+.copy-btn .ci img { position: absolute; inset: 0; transition: opacity 150ms ease, transform 200ms var(--ease-out); }
+.copy-btn .i-done { opacity: 0; transform: scale(0.6); filter: invert(1); }
+.copy-btn.copied .i-copy { opacity: 0; transform: scale(0.6); }
+.copy-btn.copied .i-done { opacity: 1; transform: none; }
+button.card-link { border: 0; padding: 0; background: none; cursor: pointer; }
+.card-copy:has(> .card-link:hover) .copy-btn { background: #2a2a2a; }
+.card-copy:has(> .card-link:active) .copy-btn { transform: scale(0.97); }
+.card-copy:has(> .card-link:focus-visible) { outline: 2px solid var(--blue); outline-offset: 2px; }
 .reply-wrap { display: flex; justify-content: flex-end; position: relative; }
 .reply {
   width: 220px; padding: 16px; display: flex; flex-direction: column; gap: 12px;
