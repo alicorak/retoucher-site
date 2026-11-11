@@ -255,6 +255,9 @@ page('get-started', 'Get started', 'Two halves: an agent plugin on your computer
       how='Then add the Figma plugin: while it waits for Figma Community review, your agent gives you a <code>manifest.json</code> to import in the Figma desktop app (<em>Plugins → Development → Import plugin from manifest…</em>). Open it, paste the file\'s link once, and start watching: <code>/retoucher:watch</code> in Claude Code, “watch my Figma notes” in Codex or Cursor.',
       html_='<div class="d-prompt-head"><b>Setup prompt</b><button class="d-copy" type="button" data-copy-from="#prompt">Copy</button></div>'
             f'<pre class="d-prompt" id="prompt">{html.escape(prompt_text())}</pre>'),
+    S('playground', 'Learn by doing', 'A Figma file of exercises.',
+      'Retoucher Playground is a Figma file with five short chapters. Each exercise is a card next to a design: do what the card says in the panel, and your agent changes the design for real.',
+      html_='<p class="d-how"><span>Open</span><a href="https://www.figma.com/community/file/1702413212702310844/retoucher-playground">Retoucher Playground on Figma Community</a>, duplicate it, and start on page 1 once the panel says Ready.</p>'),
     S('status', 'What the panel says', 'Ready, not watching, not connected.',
       'The status at the top right of the panel tells you where things stand.',
       html_=table([['Ready', 'An agent is watching; notes are picked up right away.'],

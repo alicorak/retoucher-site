@@ -18,6 +18,7 @@ Set up Retoucher for me. It lets me leave notes on my Figma layers that you pick
 ## Links
 
 - [Source and docs](https://github.com/alicorak/retoucher#readme)
+- [Retoucher Playground](https://www.figma.com/community/file/1702413212702310844/retoucher-playground): a Figma file of hands-on exercises, one feature per card
 - [How the agent handles a note](https://github.com/alicorak/retoucher/blob/main/skills/handle-figma-notes/SKILL.md)
 
 ## Docs

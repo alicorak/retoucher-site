@@ -239,6 +239,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .card-link { position: absolute; inset: 0; z-index: 5; border-radius: inherit; }
 @media (hover: hover) and (pointer: fine) { .card:has(> .card-link:hover) { background: var(--stage); } }
 .sec-start { padding-bottom: 80px; }
+.card-wide { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; padding-bottom: 24px; }
+.card-wide .card-text { max-width: 300px; }
+.card-more { margin-top: 12px; font: 500 14px/20px var(--inter); color: var(--blue); }
+.art-playground { position: absolute; right: 0; bottom: 0; width: 600px; aspect-ratio: 16 / 9; border-top-left-radius: 14px; overflow: hidden; box-shadow: 0 0 0 1px var(--line), 0 12px 32px rgba(0, 0, 0, 0.06); }
+.art-playground img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .card {
   position: relative; height: 360px; overflow: hidden; border-radius: 20px; background: var(--card);
@@ -480,6 +485,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (max-width: 1023px) {
   .cards { grid-template-columns: repeat(2, 1fr); }
   .cards-2 { grid-template-columns: 1fr; }
+  .card.card-wide { height: auto; flex-direction: column; padding-bottom: 0; }
+  .card-wide .card-text { max-width: none; }
+  .art-playground { position: relative; right: auto; bottom: auto; width: auto; align-self: stretch; margin-right: -24px; }
   .grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 719px) {
