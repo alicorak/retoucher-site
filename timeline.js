@@ -4,7 +4,7 @@
 //   data-at="ms:class;ms:-class"   classes added (or removed with -) over time
 //   data-path="ms:x,y;ms:@name;ms:click"  the cursor's moves (to a point or to data-pt=name) and clicks
 //   data-stick                     a scrolling list kept scrolled to its end
-// Docs (.demo): loops while on screen. Home ([data-tl]): rests on its last frame, which is the static
+// Docs (.demo): loops while on screen. Home hero (.story): one long loop in chapters, with tabs to jump. Home ([data-tl]): rests on its last frame, which is the static
 // illustration, and plays once when the pointer enters its card (on touch screens: once when it scrolls in).
 // With reduced motion nothing plays.
 const CHAR_MS = 38;
@@ -68,7 +68,48 @@ document.querySelectorAll('.demo').forEach(demo => {
   demo.seek = t => { stop(); render(t); }; // for checking a frame by hand
   new IntersectionObserver(([e]) => (e.isIntersecting ? play() : stop()), { threshold: 0.3 }).observe(demo);
   document.addEventListener('visibilitychange', () => (document.hidden ? stop() : play()));
-  new ResizeObserver(([e]) => demo.style.setProperty('--k', e.contentRect.width / 720)).observe(demo);
+  new ResizeObserver(([e]) => demo.style.setProperty('--k', e.contentRect.width / demo.querySelector('.scene').offsetWidth)).observe(demo);
+});
+
+// home hero: a looping story in chapters (data-chapters="start ms,…"); the tabs show progress and jump
+document.querySelectorAll('.story').forEach(story => {
+  const scene = story.querySelector('.scene');
+  const render = timeline(scene);
+  const dur = Number(story.dataset.loop);
+  const marks = story.dataset.chapters.split(',').map(Number);
+  const tabs = [...story.parentElement.querySelectorAll('.chapter')];
+  let raf = 0, start = 0, playing = false, visible = false;
+  const paint = t => {
+    render(t);
+    const at = marks.findLastIndex(m => t >= m);
+    tabs.forEach((tab, j) => {
+      const end = marks[j + 1] ?? dur;
+      tab.classList.toggle('on', j === at);
+      tab.setAttribute('aria-selected', j === at);
+      tab.style.setProperty('--p', j < at ? 1 : j === at ? (t - marks[j]) / (end - marks[j]) : 0);
+    });
+  };
+  const frame = now => { paint((now - start) % dur); raf = requestAnimationFrame(frame); };
+  const play = () => { if (playing || reduce.matches) return; playing = true; raf = requestAnimationFrame(frame); };
+  const stop = () => { playing = false; cancelAnimationFrame(raf); };
+  start = performance.now();
+  paint(Number(story.dataset.still || 0));
+  tabs.forEach((tab, j) => tab.addEventListener('click', () => {
+    if (reduce.matches) return paint((marks[j + 1] ?? dur) - 200); // a still of that chapter's end
+    start = performance.now() - marks[j];
+    if (!playing && visible) play();
+  }));
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; visible ? play() : stop(); }, { threshold: 0.25 }).observe(story);
+  document.addEventListener('visibilitychange', () => (document.hidden ? stop() : visible && play()));
+  // desktop: the 1152×576 scene fits the width; phones: a crop on the panel
+  new ResizeObserver(([e]) => {
+    const w = e.contentRect.width, narrow = w < 640;
+    const k = narrow ? 0.62 : w / 1152;
+    story.style.setProperty('--k', k);
+    story.style.setProperty('--tx', narrow ? `${w - 12 - Number(story.dataset.focusRight) * k}px` : '0px');
+    story.style.setProperty('--ty', narrow ? `${(e.contentRect.height - 576 * k) / 2}px` : '0px');
+  }).observe(story);
+  story.seek = t => { stop(); paint(t); }; // for checking a frame by hand
 });
 
 // home: rest on the last frame, play once per pointer enter, always to the end

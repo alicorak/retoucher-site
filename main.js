@@ -47,69 +47,13 @@ for (const btn of document.querySelectorAll('[data-copy="prompt"]')) {
   });
 }
 
-// ── Carousel: slides are 922×576 compositions, scaled to fit ──
-const track = document.querySelector('.track');
-const slides = [...track.querySelectorAll('.slide')];
-const capTitle = document.querySelector('[data-cap-title]');
-const cap = document.querySelector('[data-cap]');
-const [prev, next] = document.querySelectorAll('.arrow');
-const STAGE_W = 922, STAGE_H = 576;
-
+// Bento illustrations are drawn at 325px; shrink them on narrow cards
 function layout() {
-  const vw = document.documentElement.clientWidth;
-  const narrow = vw < 720;
-  const avail = Math.min(STAGE_W, vw - 40);
-  for (const slide of slides) {
-    let s, w, h, tx, ty;
-    if (narrow) {
-      // phones: a 300px tall crop at 0.6, framed on the panel (or centred)
-      s = 0.6; w = avail; h = 300;
-      tx = slide.dataset.focus === 'panel' ? w - 12 - (534 + 360) * s : (w - STAGE_W * s) / 2;
-      ty = (h - STAGE_H * s) / 2;
-    } else {
-      s = avail / STAGE_W; w = avail; h = STAGE_H * s; tx = 0; ty = 0;
-    }
-    slide.style.setProperty('--slide-w', `${w}px`);
-    slide.style.setProperty('--slide-h', `${h}px`);
-    const stage = slide.querySelector('.stage');
-    stage.style.setProperty('--s', s);
-    stage.style.setProperty('--tx', `${tx}px`);
-    stage.style.setProperty('--ty', `${ty}px`);
-  }
-  // bento illustrations are drawn at 325px; shrink them on narrow cards
   for (const art of document.querySelectorAll('.art')) {
     const cardW = art.parentElement.clientWidth;
     art.style.setProperty('--art-s', Math.min(1, (cardW - 48) / 325));
   }
-  update();
 }
-
-function current() {
-  const x = track.scrollLeft;
-  let best = 0;
-  slides.forEach((s, i) => { if (Math.abs(s.offsetLeft - slides[0].offsetLeft - x) < Math.abs(slides[best].offsetLeft - slides[0].offsetLeft - x)) best = i; });
-  return best;
-}
-
-function update() {
-  const i = current();
-  capTitle.textContent = slides[i].dataset.captionTitle;
-  cap.textContent = slides[i].dataset.caption;
-  prev.disabled = i === 0;
-  next.disabled = i === slides.length - 1;
-}
-
-for (const btn of [prev, next]) {
-  btn.addEventListener('click', () => {
-    const i = Math.max(0, Math.min(slides.length - 1, current() + Number(btn.dataset.dir)));
-    track.scrollTo({ left: slides[i].offsetLeft - slides[0].offsetLeft, behavior: 'smooth' });
-  });
-}
-track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
-track.addEventListener('keydown', e => {
-  if (e.key === 'ArrowRight') next.click();
-  if (e.key === 'ArrowLeft') prev.click();
-});
 window.addEventListener('resize', layout);
 layout();
 document.fonts?.ready.then(layout);
@@ -123,16 +67,3 @@ document.querySelectorAll('.grid li').forEach(li => {
     Promise.allSettled(li.getAnimations({ subtree: true }).map(a => a.finished)).then(() => li.classList.remove('play'));
   });
 });
-
-// Hero demo: plays only while on screen. Reduced motion or a blocked autoplay gets a still instead.
-const heroVideo = document.querySelector('.hero-video');
-const showStill = () => { heroVideo.poster = 'assets/hero-demo-poster.jpg'; };
-if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  heroVideo.preload = 'none';
-  showStill();
-} else {
-  new IntersectionObserver(([entry]) => {
-    if (!entry.isIntersecting) return heroVideo.pause();
-    heroVideo.play().catch(err => { if (err.name === 'NotAllowedError') showStill(); });
-  }, { threshold: 0.25 }).observe(heroVideo);
-}

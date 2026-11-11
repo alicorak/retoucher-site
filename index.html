@@ -43,78 +43,47 @@
         <span>Get the Figma plugin</span>
       </a>
     </div>
-    <div class="hero-demo">
-      <video class="hero-video" src="assets/hero-demo.mp4" width="2560" height="1440" muted loop playsinline preload="auto" aria-label="The Retoucher panel in Figma: a note is sent, the agent works through its steps, asks for permission, and finishes after Allow once."></video>
+    <div class="hero-story">
+      <div class="story" data-loop="15000" data-chapters="0,3800,7800,11400" data-still="8600" data-focus-right="1068" role="img" aria-label="Retoucher on alicorak.com in Figma: a note asks for bigger project titles, the agent works through its steps, asks for permission, makes the change, and Undo takes it back.">
+        <div class="scene" inert>
+          <div class="fwin st-win">
+            <div class="fwin-bar"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="am" data-at="9000:big;12300:-big">
+              <div class="am-top"><span>ALI CORAK</span><span class="am-nav"><span>PROJECTS</span><span>PLAYGROUND</span><span>WRITING</span><span>ABOUT</span></span></div>
+              <div class="am-cards"><div class="am-card"><img src="assets/stage/dataland.jpg" width="160" height="120" alt=""><span class="am-title" data-pt="title" data-at="900:selected;3300:-selected">DATALAND</span><span class="am-sub">COMPANION APP FOR THE FIRST MUSEUM OF AI ARTS</span></div><div class="am-card"><img src="assets/stage/zavo.jpg" width="160" height="120" alt=""><span class="am-title">ZAVO</span><span class="am-sub">WEBSITES AND AI PRODUCT FOR A YC-BACKED STARTUP</span></div><div class="am-card"><img src="assets/stage/lastcall.jpg" width="160" height="120" alt=""><span class="am-title">LAST CALL</span><span class="am-sub">IOS APP FOR YOUR HOME BAR</span></div></div>
+              <div class="am-foot"><span>ISTANBUL,<br>15:29:28</span><span>DESIGNER,<br>IMPRINT</span></div>
+            </div>
+          </div>
+          <p class="hand st-hand" data-out="3800">titles are too small,<br>they get lost</p>
+          <img class="hand-arrow st-arrow" data-out="3800" src="assets/hand-arrow.svg" width="120" height="70" alt="">
+          <div class="panel st-panel">
+            <div class="panel-head"><span class="p-title">Retoucher</span><span class="status"><img src="assets/logo-claude-ok.svg" width="14" height="14" alt="">Ready</span></div>
+            <div class="note-top" data-in="3250"><span class="nt"><span class="nt-num"><img src="assets/hash.svg" width="14" height="14" alt="#">12</span><span>Project titles</span></span><span class="swap"><span class="pill pill-working" data-out="4000"><i class="dot"></i>Waiting</span><span class="pill pill-working" data-in="4000" data-out="9400"><i class="dot"></i>Working</span><span class="pill pill-ok" data-in="9400" data-out="12300"><i class="dot"></i>Done</span><span class="pill" data-in="12300"><i class="dot"></i>Reverted</span></span></div>
+            <div class="panel-notes">
+              <p class="note-text" data-in="3250">Make the project titles bigger</p>
+              <ul class="steps">
+                <li data-in="4200" data-at="5000:done"><span class="ico"><img class="sp spin" src="assets/loader.svg" width="14" height="14" alt=""><img class="ck" src="assets/check-faint.svg" width="14" height="14" alt=""></span>Reading 3 project titles</li>
+                <li data-in="5000" data-at="6000:done"><span class="ico"><img class="sp spin" src="assets/loader.svg" width="14" height="14" alt=""><img class="ck" src="assets/check-faint.svg" width="14" height="14" alt=""></span>Finding the title style</li>
+                <li data-in="6000" data-at="9300:done"><span class="ico"><img class="sp spin" src="assets/loader.svg" width="14" height="14" alt=""><img class="ck" src="assets/check-faint.svg" width="14" height="14" alt=""></span>Changing 3 text layers</li>
+              </ul>
+              <div class="perm" data-in="7900" data-out="8900"><span class="mono">Asks for permission</span><strong>Edit the Figma file</strong></div>
+              <div class="perm-actions" data-in="8100" data-out="8900"><span class="pbtn">Decline</span><span class="pbtn-group"><span class="pbtn">Always allow</span><span class="pbtn dark" data-pt="allow" data-at="8700:pick;8880:-pick">Allow once</span></span></div>
+              <div class="st-undo" data-in="9600"><span class="undo" data-pt="undo" data-at="12200:pick;12380:-pick"><img src="assets/rotate-ccw.svg" width="14" height="14" alt="">Undo</span></div>
+            </div>
+            <div class="composer"><div class="field field-soft" data-pt="field"><span class="ph" data-at="1500:gone;3200:-gone">What should change?</span><span class="st-typed" data-type="1500" data-out="3200">Make the project titles bigger</span><span class="send" data-pt="send" data-at="3200:pick;3380:-pick"><img src="assets/arrow-up-white.svg" width="20" height="20" alt="Send"></span></div></div>
+          </div>
+          <i class="s-cur" data-in="150" data-out="14600" data-path="0:760,560;300:@title;900:click;1400:@field;2600:@send;3200:click;7800:@allow;8700:click;9100:880,330;11400:@undo;12200:click;13200:900,560"></i>
+        </div>
+      </div>
+      <div class="chapters" role="tablist" aria-label="How it works">
+        <button class="chapter" type="button" role="tab"><span class="ch-bar"></span><span class="ch-title"><span class="ch-n">01</span>Point at it</span><span class="ch-sub">Select, write, send.</span></button>
+        <button class="chapter" type="button" role="tab"><span class="ch-bar"></span><span class="ch-title"><span class="ch-n">02</span>Watch it work</span><span class="ch-sub">Steps, as they happen.</span></button>
+        <button class="chapter" type="button" role="tab"><span class="ch-bar"></span><span class="ch-title"><span class="ch-n">03</span>Approve</span><span class="ch-sub">Allow once, always, or decline.</span></button>
+        <button class="chapter" type="button" role="tab"><span class="ch-bar"></span><span class="ch-title"><span class="ch-n">04</span>Undo</span><span class="ch-sub">One click back.</span></button>
+      </div>
     </div>
   </header>
 
-  <section class="carousel" aria-label="How it works">
-    <div class="track" tabindex="0">
-
-      <article class="slide" data-caption-title="Note." data-caption="Point at it, write it, send it." data-focus="panel">
-        <div class="stage">
-          <div class="note-scene">
-            <div class="fwin">
-              <div class="fwin-bar"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
-              <div class="fwin-design">
-                <div class="d-top"><span class="d-brand">Morning</span><span class="d-nav"><span>Menu</span><span>Visit</span><span>Shop</span></span></div>
-                <div class="d-hero">
-                  <p class="d-head">Slow mornings,<br>good coffee.</p>
-                  <span class="d-cta">Order ahead <img src="assets/arrow-right.svg" width="12" height="12" alt=""></span>
-                </div>
-                <div class="sel"><i></i><i></i><i></i><i></i></div>
-                <span class="badge">1</span>
-              </div>
-            </div>
-            <div class="panel">
-              <div class="panel-head"><span class="p-title">Retoucher</span><span class="status"><img src="assets/logo-claude-ok.svg" width="14" height="14" alt="">Ready</span></div>
-              <div class="note-top"><span class="nt"><span class="nt-num"><img src="assets/hash.svg" width="14" height="14" alt="#">12</span><span>Headline</span></span><span class="pill pill-working"><i class="dot"></i>Working</span></div>
-              <div class="panel-notes">
-                <p class="note-text">Set the headline in KMR Waldenburg and make it a bit bolder.</p>
-                <ul class="steps">
-                  <li class="done"><img src="assets/check-faint.svg" width="14" height="14" alt="">Reading the headline</li>
-                  <li class="done"><img src="assets/check-faint.svg" width="14" height="14" alt="">Finding KMR Waldenburg on your computer</li>
-                  <li><img class="spin" src="assets/loader.svg" width="14" height="14" alt="">Changing 1 text layer</li>
-                </ul>
-                <div class="perm">
-                  <span class="mono">Asks for permission</span>
-                  <strong>Edit the Figma file</strong>
-                </div>
-                <div class="perm-actions"><span class="pbtn">Decline</span><span class="pbtn-group"><span class="pbtn">Always allow</span><span class="pbtn dark">Allow once</span></span></div>
-              </div>
-              <div class="composer"><div class="field field-soft"><span class="ph">What should change?</span><span class="send"><img src="assets/arrow-up-white.svg" width="20" height="20" alt="Send"></span></div></div>
-            </div>
-          </div>
-          <p class="hand hand-note">make it bolder,<br>in our brand font</p>
-          <img class="hand-arrow" src="assets/hand-arrow.svg" width="120" height="70" alt="">
-        </div>
-      </article>
-
-      <article class="slide slide-center" data-caption-title="Approve." data-caption="Allow once, always, or decline." data-focus="center">
-        <div class="stage">
-          <div class="frag frag-zoom">
-            <div class="frag-zoom-head">
-              <div class="note-top"><span class="nt"><span class="nt-num"><img src="assets/hash.svg" width="14" height="14" alt="#">12</span><span>Headline</span></span><span class="pill pill-working"><i class="dot"></i>Working</span></div>
-              <p class="note-text">Set the headline in KMR Waldenburg and make it a bit bolder.</p>
-            </div>
-            <div class="perm">
-              <span class="mono">Asks for permission</span>
-              <strong>Edit the Figma file</strong>
-            </div>
-            <div class="perm-actions"><span class="pbtn">Decline</span><span class="pbtn-group"><span class="pbtn">Always allow</span><span class="pbtn dark">Allow once</span></span></div>
-          </div>
-        </div>
-      </article>
-
-    </div>
-    <div class="carousel-foot">
-      <p class="caption"><strong data-cap-title>Note.</strong> <span data-cap>Point at it, write it, send it.</span></p>
-      <div class="arrows">
-        <button type="button" class="arrow" data-dir="-1" aria-label="Previous"><img src="assets/chevron-left.svg" width="16" height="16" alt=""></button>
-        <button type="button" class="arrow" data-dir="1" aria-label="Next"><img src="assets/chevron-right.svg" width="16" height="16" alt=""></button>
-      </div>
-    </div>
-  </section>
 
   <section class="sec">
     <div class="sec-head"><h2>Notes that land where you point</h2><p>Point at it. Write it. Send it.</p></div>
