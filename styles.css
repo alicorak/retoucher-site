@@ -299,6 +299,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .f-right { display: flex; align-items: center; gap: 8px; }
 .local { padding: 4px 8px; border-radius: 4px; background: var(--card); font: 500 11px/normal var(--inter); color: var(--gray); }
 .font-row.on .local { background: #fff; }
+@media (hover: hover) and (pointer: fine) {
+  .art:has(> .fonts) { z-index: 6; pointer-events: none; }
+  .fonts { pointer-events: auto; }
+  .font-row { transition: background-color 120ms ease; }
+  .font-row:not(.on):hover { background: rgba(0, 0, 0, 0.045); }
+  .card:has(.fonts:hover) { background: var(--stage); }
+}
 
 /* Questions */
 .opt {
