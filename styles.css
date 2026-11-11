@@ -223,23 +223,42 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 
 /* ── Timelines: docs demos and the home cards ─────────── */
-/* timelines (timeline.js): hidden items take no room, shown ones fade in; .tl is set by the script */
-.tl [data-in]:not(.shown), .tl [data-out]:not(.shown), .tl .gone { display: none; }
-.tl [data-in].shown, .tl [data-out].shown { transition: opacity 240ms var(--ease-out), transform 240ms var(--ease-out); }
-@starting-style { .tl [data-in].shown, .tl [data-out].shown { opacity: 0; transform: translateY(6px); } }
+/* timelines (timeline.js); .tl is set by the script, so without it everything simply shows */
+/* docs scenes: lists grow, so a hidden item takes no room and a shown one fades in */
+.scene.tl [data-in]:not(.shown), .scene.tl [data-out]:not(.shown), .tl .gone { display: none; }
+.scene.tl [data-in].shown, .scene.tl [data-out].shown { transition: opacity 240ms var(--ease-out), transform 240ms var(--ease-out); }
+@starting-style { .scene.tl [data-in].shown, .scene.tl [data-out].shown { opacity: 0; transform: translateY(6px); } }
+/* home cards: nothing moves the layout; items keep their place, settle in, and leave faster than they came */
+[data-tl].tl :is([data-in], [data-out]):not(.s-cur) {
+  transition-property: opacity, transform, filter, border-color, background-color, color, box-shadow;
+  transition-duration: 150ms; transition-timing-function: ease;
+}
+[data-tl].tl :is([data-in], [data-out]).shown:not(.s-cur) { transition-duration: 280ms; transition-timing-function: var(--ease-out); }
+[data-tl].tl :is([data-in], [data-out]):not(.shown):not(.s-cur) { opacity: 0; transform: translateY(6px) scale(0.98); filter: blur(2px); }
+[data-tl].tl [data-fx="right"]:not(.shown) { transform: translateX(16px); }
+[data-tl].tl [data-fx="pop"]:not(.shown) { transform: scale(0.9); }
+[data-tl].tl .tl-collapse:not(.shown) { display: none; }
+/* two states in one place: they cross-fade */
+.swap { display: inline-grid; }
+.swap > * { grid-area: 1 / 1; justify-self: end; }
+.ba-box > * { grid-area: 1 / 1; }
 .pbtn { transition: transform 160ms var(--ease-out); }
-.pbtn.pick { transform: scale(0.94); }
+.pbtn.pick { transform: scale(0.97); }
 /* the cursor */
-.s-cur { position: absolute; left: 0; top: 0; z-index: 30; width: 20px; height: 20px; pointer-events: none; transition: transform 480ms var(--ease-in-out);
+.s-cur { position: absolute; left: 0; top: 0; z-index: 30; width: 20px; height: 20px; pointer-events: none; transition: transform 480ms var(--ease-in-out), opacity 200ms ease;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 2l13 7-6 1.6L7.4 17z' fill='%23111' stroke='%23fff' stroke-width='1.4' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat; }
+[data-tl].tl .s-cur:not(.shown) { opacity: 0; }
 .s-cur::after { content: ''; position: absolute; left: -7px; top: -7px; width: 18px; height: 18px; border-radius: 50%; background: rgba(31, 120, 255, 0.25); transform: scale(0.4); opacity: 0; transition: transform 180ms var(--ease-out), opacity 180ms ease; }
 .s-cur.down::after { transform: scale(1); opacity: 1; }
-.steps li .ck { display: none; }
-.steps li.done .ck { display: block; }
-.steps li.done .sp { display: none; }
+/* a step: the spinner turns into a check */
+.steps li { transition: color 200ms ease; }
+.steps .ico { display: grid; flex: none; }
+.steps .ico > * { grid-area: 1 / 1; transition: opacity 200ms ease, transform 200ms var(--ease-out), filter 200ms ease; }
+.steps li .ck, .steps li.done .sp { opacity: 0; transform: scale(0.6); filter: blur(2px); }
+.steps li.done .ck { opacity: 1; transform: none; filter: none; }
 .tl .area { transform-origin: 0 0; transform: scale(0.15); opacity: 0; transition: transform 600ms var(--ease-in-out), opacity 200ms ease; }
 .tl .area.big { transform: none; opacity: 1; }
-.tl .tile.v2:not(.sel) { border-color: transparent; }
+.tl .tile.v2:not(.is-picked) { border-color: transparent; }
 .tile.v2 { transition: border-color 200ms ease; }
 
 /* ── Sections and cards ───────────────────────────────── */
@@ -318,9 +337,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .opt {
   display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 12px;
   background: #fff; border: 1px solid var(--line); font: 400 13px/normal var(--geist); color: var(--muted);
+  transition: border-color 200ms ease, box-shadow 200ms ease, color 200ms ease;
 }
-.opt i { width: 12px; height: 12px; border-radius: 50%; border: 1px solid #c9c9c5; flex: none; }
-.opt.on { border: 1.5px solid var(--accent); color: var(--text); }
+.opt i { width: 12px; height: 12px; border-radius: 50%; border: 1px solid #c9c9c5; flex: none; transition: border-width 200ms ease, border-color 200ms ease, background-color 200ms ease; }
+.opt.on { border-color: var(--accent); box-shadow: 0 0 0 0.5px var(--accent); color: var(--text); }
 .opt.on i { border: 3.5px solid var(--accent); background: var(--accent); box-shadow: inset 0 0 0 1.5px #fff; }
 .opt-actions { display: flex; justify-content: space-between; }
 .opt-actions .pbtn { line-height: normal; }
