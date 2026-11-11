@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Undo · Retoucher Docs</title>
+  <meta name="description" content="Every finished note shows a before and after picture. Undo puts the old values back, even when the agent is offline.">
+  <meta property="og:title" content="Undo · Retoucher Docs">
+  <meta property="og:description" content="Every finished note shows a before and after picture. Undo puts the old values back, even when the agent is offline.">
+  <meta property="og:image" content="https://retoucher.alicorak.com/assets/og.png">
+  <link rel="canonical" href="https://retoucher.alicorak.com/docs/undo/">
+  <link rel="icon" href="../../assets/icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../docs/docs.css">
+</head>
+<body>
+<header class="d-top">
+  <a class="d-brand" href="../../"><img src="../../assets/icon.png" width="24" height="24" alt="">Retoucher <span>Docs</span></a>
+  <nav><a href="../../docs/get-started/">Get started</a><a href="https://github.com/alicorak/retoucher">GitHub</a><a href="../../">Home</a></nav>
+</header>
+<div class="d-wrap">
+<nav class="d-nav" aria-label="Features"><section><h4>Start</h4><ul><li><a href="../../docs/get-started/">Get started</a></li><li><a href="../../docs/agents/">Your own agent</a></li><li><a href="../../docs/privacy/">Stays on your computer</a></li></ul></section><section><h4>Write a note</h4><ul><li><a href="../../docs/notes/">Notes on layers</a></li><li><a href="../../docs/areas/">Areas and pins</a></li><li><a href="../../docs/targets/">Several targets</a></li><li><a href="../../docs/files/">Photos and files</a></li><li><a href="../../docs/mentions/">@mentions</a></li><li><a href="../../docs/quick-action/">Quick action</a></li><li><a href="../../docs/batches/">Batches</a></li></ul></section><section><h4>While it works</h4><ul><li><a href="../../docs/steps/">Live steps</a></li><li><a href="../../docs/talk/">Talk while it works</a></li><li><a href="../../docs/questions/">Questions and plans</a></li><li><a href="../../docs/approve/">Approve</a></li></ul></section><section><h4>What it changes</h4><ul><li><a href="../../docs/fonts/">Your own fonts</a></li><li><a href="../../docs/undo/" aria-current="page">Undo</a></li><li><a href="../../docs/versions/">Versions</a></li><li><a href="../../docs/references/">References</a></li></ul></section><section><h4>Options</h4><ul><li><a href="../../docs/whole-file/">Whole page or whole file</a></li><li><a href="../../docs/design-system/">Your design system</a></li><li><a href="../../docs/comments/">Figma comments</a></li><li><a href="../../docs/model-and-skill/">Model and skill</a></li></ul></section><section><h4>In Figma</h4><ul><li><a href="../../docs/markers/">Canvas markers</a></li><li><a href="../../docs/select-to-find/">Select to find</a></li><li><a href="../../docs/small-mode/">Small mode</a></li></ul></section></nav>
+<main class="d-main">
+  <div><p class="d-eyebrow">What it changes <a class="d-all" href="../">· All features</a></p><h1>Undo</h1></div>
+  <p class="d-lead">Every finished note shows a before and after picture. <em>Undo</em> puts the old values back, even when the agent is offline.</p>
+  <div class="demo" data-loop="5500" data-still="1500" role="img" aria-label="Demo: Undo"><div class="scene"><div class="s-canvas"><div class="s-frame"><span class="s-fname">Home</span><div class="s-art"><div class="s-nav"><span>Morning</span><span>Menu · Visit · Shop</span></div><p class="s-h1" data-at="0:bold;2600:-bold">Slow mornings,<br>good coffee.</p><span class="s-cta">Order ahead →</span></div></div><div class="s-sel" style="left:48px;top:210px;width:268px;height:80px"></div></div><div class="s-panel"><div class="s-head"><b>Retoucher</b><span class="status"><img src="../../assets/logo-claude-ok.svg" width="14" height="14" alt="">Ready</span></div><div class="s-notes"><div class="note-top"><span class="nt"><span class="nt-num"><img src="../../assets/hash.svg" width="14" height="14" alt="#">11</span><span>Headline</span></span><span class="s-pills"><span class="pill pill-ok" data-out="2600"><i class="dot"></i>Done</span><span class="pill pill-working" data-in="2600"><i class="dot"></i>Reverted</span></span></div><p class="note-text">Make it bolder</p><div class="s-ba"><div style="font-weight:500">Slow mornings</div><div>Slow mornings</div></div><div style="display:flex;justify-content:space-between" class="s-mono"><span>Before</span><span style="width:50%">After</span></div><span class="undo" style="align-self:flex-start" data-out="2600"><img src="../../assets/rotate-ccw.svg" width="14" height="14" alt="">Undo</span></div><div class="s-comp"><div class="s-ctx"><i></i><span>Headline<small>Text · Home</small></span></div><div class="field"><span class="ph">What should change?</span><span class="send"><img src="../../assets/arrow-up-white.svg" width="20" height="20" alt=""></span></div></div></div><i class="s-cur" data-path="0:560,250;1200:460,400;2400:click"></i></div></div>
+  
+  <section class="d-sec"><h2>How to use it</h2><ol class="d-how"><li><span>Open a finished note to see <em>Before</em> and <em>After</em>.</span></li><li><span>Not happy? Press <em>Undo</em>.</span></li><li><span>The layers go back to how they were and the note says <em>Reverted</em>.</span></li></ol></section>
+  <section class="d-sec"><h2>Good to know</h2><ul class="d-know"><li>The agent records the old values before it edits: layer properties, styles, instance properties and swaps, variable bindings, variables, moved and new layers.</li><li>Changes the agent couldn't record show no Undo button.</li></ul></section>
+  <nav class="d-pn"><a href="../fonts/"><span>Previous</span>Your own fonts</a><a class="next" href="../versions/"><span>Next</span>Versions</a></nav>
+</main>
+</div>
+<script src="../../docs/demo.js" defer></script>
+</body>
+</html>

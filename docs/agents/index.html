@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your own agent · Retoucher Docs</title>
+  <meta name="description" content="Retoucher doesn&#x27;t bring its own AI. The coding agent you already use reads your notes, edits the file through the Figma MCP and answers in the panel.">
+  <meta property="og:title" content="Your own agent · Retoucher Docs">
+  <meta property="og:description" content="Retoucher doesn&#x27;t bring its own AI. The coding agent you already use reads your notes, edits the file through the Figma MCP and answers in the panel.">
+  <meta property="og:image" content="https://retoucher.alicorak.com/assets/og.png">
+  <link rel="canonical" href="https://retoucher.alicorak.com/docs/agents/">
+  <link rel="icon" href="../../assets/icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../docs/docs.css">
+</head>
+<body>
+<header class="d-top">
+  <a class="d-brand" href="../../"><img src="../../assets/icon.png" width="24" height="24" alt="">Retoucher <span>Docs</span></a>
+  <nav><a href="../../docs/get-started/">Get started</a><a href="https://github.com/alicorak/retoucher">GitHub</a><a href="../../">Home</a></nav>
+</header>
+<div class="d-wrap">
+<nav class="d-nav" aria-label="Features"><section><h4>Start</h4><ul><li><a href="../../docs/get-started/">Get started</a></li><li><a href="../../docs/agents/" aria-current="page">Your own agent</a></li><li><a href="../../docs/privacy/">Stays on your computer</a></li></ul></section><section><h4>Write a note</h4><ul><li><a href="../../docs/notes/">Notes on layers</a></li><li><a href="../../docs/areas/">Areas and pins</a></li><li><a href="../../docs/targets/">Several targets</a></li><li><a href="../../docs/files/">Photos and files</a></li><li><a href="../../docs/mentions/">@mentions</a></li><li><a href="../../docs/quick-action/">Quick action</a></li><li><a href="../../docs/batches/">Batches</a></li></ul></section><section><h4>While it works</h4><ul><li><a href="../../docs/steps/">Live steps</a></li><li><a href="../../docs/talk/">Talk while it works</a></li><li><a href="../../docs/questions/">Questions and plans</a></li><li><a href="../../docs/approve/">Approve</a></li></ul></section><section><h4>What it changes</h4><ul><li><a href="../../docs/fonts/">Your own fonts</a></li><li><a href="../../docs/undo/">Undo</a></li><li><a href="../../docs/versions/">Versions</a></li><li><a href="../../docs/references/">References</a></li></ul></section><section><h4>Options</h4><ul><li><a href="../../docs/whole-file/">Whole page or whole file</a></li><li><a href="../../docs/design-system/">Your design system</a></li><li><a href="../../docs/comments/">Figma comments</a></li><li><a href="../../docs/model-and-skill/">Model and skill</a></li></ul></section><section><h4>In Figma</h4><ul><li><a href="../../docs/markers/">Canvas markers</a></li><li><a href="../../docs/select-to-find/">Select to find</a></li><li><a href="../../docs/small-mode/">Small mode</a></li></ul></section></nav>
+<main class="d-main">
+  <div><p class="d-eyebrow">Start <a class="d-all" href="../">· All features</a></p><h1>Your own agent</h1></div>
+  <p class="d-lead">Retoucher doesn't bring its own AI. The coding agent you already use reads your notes, edits the file through the Figma MCP and answers in the panel.</p>
+  <div class="demo" data-loop="7000" role="img" aria-label="Demo: Your own agent"><div class="scene"><div class="s-node" style="left:24px;top:40px" data-in="200"><span style="display:flex;gap:8px"><img src="../../assets/logo-claude.svg" width="18" height="18" alt=""><img src="../../assets/logo-openai.svg" width="18" height="18" alt=""><img src="../../assets/logo-cursor.svg" width="18" height="18" alt=""></span>Your agent<small>Claude Code, Codex or Cursor</small></div><div class="s-term" style="top:170px;height:240px" data-in="600"><span class="who">watching</span><span data-in="1400">NEW #12 Make the headline bolder</span><span class="ok" data-in="2400">Edited 1 text layer</span><span class="ok" data-in="3400">Replied in the panel</span></div><div class="s-panel"><div class="s-head"><b>Retoucher</b><span class="status"><img src="../../assets/logo-claude-ok.svg" width="14" height="14" alt="">Ready</span></div><div class="s-notes"><div class="note-top"><span class="nt"><span class="nt-num"><img src="../../assets/hash.svg" width="14" height="14" alt="#">12</span><span>Headline</span></span><span class="s-pills"><span class="pill pill-working" data-in="900" data-out="2000"><i class="dot"></i>Waiting</span><span class="pill pill-working" data-in="2000" data-out="3400"><i class="dot"></i>Working</span><span class="pill pill-ok" data-in="3400"><i class="dot"></i>Done</span></span></div><p class="note-text" data-in="900">Make the headline bolder</p><div class="s-reply" data-in="3400"><small>Claude</small>Done. The headline is now Bold.</div></div><div class="s-comp"><div class="s-ctx"><i></i><span>Headline<small>Text · Home</small></span></div><div class="field"><span class="ph">What should change?</span><span class="send"><img src="../../assets/arrow-up-white.svg" width="20" height="20" alt=""></span></div></div></div></div></div>
+  
+  <section class="d-sec"><h2>How to use it</h2><ol class="d-how"><li><span>Install the Retoucher agent plugin in the agent you use (see <a href="../get-started/">Get started</a>).</span></li><li><span>Open that agent in any folder. Opening a session starts the bridge, so the panel connects by itself.</span></li><li><span>Start watching. Claude Code: <code>/retoucher:watch</code>. Codex or Cursor: ask it to “watch my Figma notes”.</span></li><li><span>Send notes from the panel. The agent picks each one up as it arrives.</span></li></ol></section>
+  <section class="d-sec"><h2>Good to know</h2><ul class="d-know"><li>It works on your agent's own account and plan; Retoucher calls no AI service itself.</li><li>Claude Code uses the <code>retoucher</code> command; Codex and Cursor use the same actions as tools of the <code>retoucher</code> MCP server.</li><li>Notes live in <code>~/.retoucher</code>, shared by every agent, so you can switch agents and keep your notes.</li></ul></section>
+  <nav class="d-pn"><a href="../get-started/"><span>Previous</span>Get started</a><a class="next" href="../privacy/"><span>Next</span>Stays on your computer</a></nav>
+</main>
+</div>
+<script src="../../docs/demo.js" defer></script>
+</body>
+</html>

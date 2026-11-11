@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get started · Retoucher Docs</title>
+  <meta name="description" content="Retoucher has two halves: an agent plugin that runs on your computer, and the panel inside Figma. Your agent installs the first one for you.">
+  <meta property="og:title" content="Get started · Retoucher Docs">
+  <meta property="og:description" content="Retoucher has two halves: an agent plugin that runs on your computer, and the panel inside Figma. Your agent installs the first one for you.">
+  <meta property="og:image" content="https://retoucher.alicorak.com/assets/og.png">
+  <link rel="canonical" href="https://retoucher.alicorak.com/docs/get-started/">
+  <link rel="icon" href="../../assets/icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../docs/docs.css">
+</head>
+<body>
+<header class="d-top">
+  <a class="d-brand" href="../../"><img src="../../assets/icon.png" width="24" height="24" alt="">Retoucher <span>Docs</span></a>
+  <nav><a href="../../docs/get-started/">Get started</a><a href="https://github.com/alicorak/retoucher">GitHub</a><a href="../../">Home</a></nav>
+</header>
+<div class="d-wrap">
+<nav class="d-nav" aria-label="Features"><section><h4>Start</h4><ul><li><a href="../../docs/get-started/" aria-current="page">Get started</a></li><li><a href="../../docs/agents/">Your own agent</a></li><li><a href="../../docs/privacy/">Stays on your computer</a></li></ul></section><section><h4>Write a note</h4><ul><li><a href="../../docs/notes/">Notes on layers</a></li><li><a href="../../docs/areas/">Areas and pins</a></li><li><a href="../../docs/targets/">Several targets</a></li><li><a href="../../docs/files/">Photos and files</a></li><li><a href="../../docs/mentions/">@mentions</a></li><li><a href="../../docs/quick-action/">Quick action</a></li><li><a href="../../docs/batches/">Batches</a></li></ul></section><section><h4>While it works</h4><ul><li><a href="../../docs/steps/">Live steps</a></li><li><a href="../../docs/talk/">Talk while it works</a></li><li><a href="../../docs/questions/">Questions and plans</a></li><li><a href="../../docs/approve/">Approve</a></li></ul></section><section><h4>What it changes</h4><ul><li><a href="../../docs/fonts/">Your own fonts</a></li><li><a href="../../docs/undo/">Undo</a></li><li><a href="../../docs/versions/">Versions</a></li><li><a href="../../docs/references/">References</a></li></ul></section><section><h4>Options</h4><ul><li><a href="../../docs/whole-file/">Whole page or whole file</a></li><li><a href="../../docs/design-system/">Your design system</a></li><li><a href="../../docs/comments/">Figma comments</a></li><li><a href="../../docs/model-and-skill/">Model and skill</a></li></ul></section><section><h4>In Figma</h4><ul><li><a href="../../docs/markers/">Canvas markers</a></li><li><a href="../../docs/select-to-find/">Select to find</a></li><li><a href="../../docs/small-mode/">Small mode</a></li></ul></section></nav>
+<main class="d-main">
+  <div><p class="d-eyebrow">Start <a class="d-all" href="../">· All features</a></p><h1>Get started</h1></div>
+  <p class="d-lead">Retoucher has two halves: an agent plugin that runs on your computer, and the panel inside Figma. Your agent installs the first one for you.</p>
+  <div class="demo" data-loop="7500" role="img" aria-label="Demo: Get started"><div class="scene"><div class="s-term"><span class="who">Your agent</span><span class="ok" data-in="700">Retoucher installed</span><span class="ok" data-in="1500">Bridge running on localhost:4747</span><span class="ok" data-in="2300">Figma MCP connected</span><span class="ok" data-in="3100">Figma plugin ready to import</span><span class="ok" data-in="4300">Watching your notes</span></div><div class="s-panel"><div class="s-head"><b>Retoucher</b><span class="status" style="color:var(--muted)" data-out="4300"><i class="dot" style="background:#d6453d"></i>Not connected</span><span class="status" data-in="4300"><img src="../../assets/logo-claude-ok.svg" width="14" height="14" alt="">Ready</span></div><div class="s-notes" style="justify-content:center;text-align:center;color:var(--muted);font-size:13px"><p data-out="4300">Waiting for your agent…</p><p data-in="4500">Select a layer and write what should change.</p></div><div class="s-comp"><div class="s-ctx"><i></i><span>Nothing selected<small>The note is about the page.</small></span></div><div class="field"><span class="ph">What should change?</span><span class="send"><img src="../../assets/arrow-up-white.svg" width="20" height="20" alt=""></span></div></div></div></div></div>
+  <section class="d-sec"><div class="d-prompt-head"><h2>Setup prompt</h2><button class="d-copy" type="button" data-copy-from="#prompt">Copy</button></div><pre class="d-prompt" id="prompt">Set up Retoucher for me. It lets me leave notes on my Figma layers that you pick up, apply in the Figma file and answer in a panel inside Figma.
+
+1. Install the Retoucher agent plugin for the agent you are:
+   - Claude Code: run `claude plugin install retoucher --marketplace alicorak/retoucher`
+   - Codex: run `codex plugin marketplace add alicorak/retoucher`, then install it from /plugins and tell me to trust its hooks once
+   - Cursor: run `git clone https://github.com/alicorak/retoucher.git ~/.retoucher-plugin` and `mkdir -p ~/.cursor/plugins/local &amp;&amp; ln -s ~/.retoucher-plugin ~/.cursor/plugins/local/retoucher`, then tell me to restart Cursor
+2. Check that Node.js 18 or newer is installed and that the Figma MCP server is connected. If either is missing, tell me exactly how to fix it.
+3. Add the Retoucher Figma plugin. It&#x27;s waiting for Figma Community review, so it comes with the agent plugin: get the path of its manifest (Claude Code: `retoucher figma-plugin`, or `node &lt;plugin folder&gt;/bridge/cli.mjs figma-plugin\</pre></section>
+  <section class="d-sec"><h2>How to use it</h2><ol class="d-how"><li><span>Copy the setup prompt below and paste it into Claude Code, Codex or Cursor.</span></li><li><span>Your agent installs the Retoucher agent plugin, starts a small bridge on your computer and checks that Node.js 18+ and the Figma MCP are ready.</span></li><li><span>Add the Figma plugin. It is waiting for Figma Community review, so for now your agent shows you a <code>manifest.json</code> to import in the Figma desktop app: <em>Plugins → Development → Import plugin from manifest…</em></span></li><li><span>Open it from <em>Plugins → Development → Retoucher</em> and paste the file's link once when the panel asks.</span></li><li><span>Start watching: <code>/retoucher:watch</code> in Claude Code, or ask Codex or Cursor to “watch my Figma notes”. The panel says <em>Ready</em>.</span></li></ol></section>
+  <section class="d-sec"><h2>Good to know</h2><ul class="d-know"><li>The panel's top right tells you where things stand: <em>Ready</em> (an agent is watching), <em>Not watching</em> (notes wait until you start watching), <em>Not connected</em> (no agent session is open).</li><li>You need edit access to the Figma files you want to change.</li><li>Stuck? The <a href="https://github.com/alicorak/retoucher#troubleshooting">troubleshooting table</a> covers the usual cases.</li></ul></section>
+  <nav class="d-pn"><span></span><a class="next" href="../agents/"><span>Next</span>Your own agent</a></nav>
+</main>
+</div>
+<script src="../../docs/demo.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stays on your computer · Retoucher Docs</title>
+  <meta name="description" content="The panel talks to a bridge on your own computer and nothing else. Notes, screenshots and files never leave your machine.">
+  <meta property="og:title" content="Stays on your computer · Retoucher Docs">
+  <meta property="og:description" content="The panel talks to a bridge on your own computer and nothing else. Notes, screenshots and files never leave your machine.">
+  <meta property="og:image" content="https://retoucher.alicorak.com/assets/og.png">
+  <link rel="canonical" href="https://retoucher.alicorak.com/docs/privacy/">
+  <link rel="icon" href="../../assets/icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../docs/docs.css">
+</head>
+<body>
+<header class="d-top">
+  <a class="d-brand" href="../../"><img src="../../assets/icon.png" width="24" height="24" alt="">Retoucher <span>Docs</span></a>
+  <nav><a href="../../docs/get-started/">Get started</a><a href="https://github.com/alicorak/retoucher">GitHub</a><a href="../../">Home</a></nav>
+</header>
+<div class="d-wrap">
+<nav class="d-nav" aria-label="Features"><section><h4>Start</h4><ul><li><a href="../../docs/get-started/">Get started</a></li><li><a href="../../docs/agents/">Your own agent</a></li><li><a href="../../docs/privacy/" aria-current="page">Stays on your computer</a></li></ul></section><section><h4>Write a note</h4><ul><li><a href="../../docs/notes/">Notes on layers</a></li><li><a href="../../docs/areas/">Areas and pins</a></li><li><a href="../../docs/targets/">Several targets</a></li><li><a href="../../docs/files/">Photos and files</a></li><li><a href="../../docs/mentions/">@mentions</a></li><li><a href="../../docs/quick-action/">Quick action</a></li><li><a href="../../docs/batches/">Batches</a></li></ul></section><section><h4>While it works</h4><ul><li><a href="../../docs/steps/">Live steps</a></li><li><a href="../../docs/talk/">Talk while it works</a></li><li><a href="../../docs/questions/">Questions and plans</a></li><li><a href="../../docs/approve/">Approve</a></li></ul></section><section><h4>What it changes</h4><ul><li><a href="../../docs/fonts/">Your own fonts</a></li><li><a href="../../docs/undo/">Undo</a></li><li><a href="../../docs/versions/">Versions</a></li><li><a href="../../docs/references/">References</a></li></ul></section><section><h4>Options</h4><ul><li><a href="../../docs/whole-file/">Whole page or whole file</a></li><li><a href="../../docs/design-system/">Your design system</a></li><li><a href="../../docs/comments/">Figma comments</a></li><li><a href="../../docs/model-and-skill/">Model and skill</a></li></ul></section><section><h4>In Figma</h4><ul><li><a href="../../docs/markers/">Canvas markers</a></li><li><a href="../../docs/select-to-find/">Select to find</a></li><li><a href="../../docs/small-mode/">Small mode</a></li></ul></section></nav>
+<main class="d-main">
+  <div><p class="d-eyebrow">Start <a class="d-all" href="../">· All features</a></p><h1>Stays on your computer</h1></div>
+  <p class="d-lead">The panel talks to a bridge on your own computer and nothing else. Notes, screenshots and files never leave your machine.</p>
+  <div class="demo" data-loop="4500" role="img" aria-label="Demo: Stays on your computer"><div class="scene"><div class="s-wire" style="left:184px;top:214px;width:96px"></div><div class="s-wire" style="left:440px;top:214px;width:96px"></div><div class="s-node" style="left:24px;top:170px;width:160px">Figma panel<small>in your Figma</small></div><div class="s-node" style="left:280px;top:170px;width:160px">Bridge<small>localhost:4747</small></div><div class="s-node" style="left:536px;top:170px;width:160px">Your agent<small>on your computer</small></div><i class="s-dot" data-at="0:p0;900:-p0;900:p1;1800:-p1;1800:p2;2700:-p2;2700:p3;3600:-p3"></i><div class="s-node" style="left:200px;top:320px;width:320px;align-items:center;color:var(--gray);font-weight:400;font-size:13px;box-shadow:none;background:none">Notes, screenshots and files stay in ~/.retoucher</div></div></div>
+  
+  <section class="d-sec"><h2>How to use it</h2><ol class="d-how"><li><span>The agent plugin starts the bridge on <code>localhost:4747</code> when your agent opens.</span></li><li><span>The first Figma panel that connects pairs with the bridge and gets a key.</span></li><li><span>From then on the bridge only answers requests that carry that key.</span></li></ol></section>
+  <section class="d-sec"><h2>Good to know</h2><ul class="d-know"><li>Notes, screenshots and attachments are kept in <code>~/.retoucher</code>.</li><li>Websites you visit can reach <code>localhost</code> too, so the key matters: without it a page can't read or send notes, or answer permission prompts.</li><li>Need to pair another panel? Ask your agent to run <code>retoucher unpair</code>.</li><li>The Figma comments option uses your personal Figma token, stored on your computer only.</li></ul></section>
+  <nav class="d-pn"><a href="../agents/"><span>Previous</span>Your own agent</a><a class="next" href="../notes/"><span>Next</span>Notes on layers</a></nav>
+</main>
+</div>
+<script src="../../docs/demo.js" defer></script>
+</body>
+</html>

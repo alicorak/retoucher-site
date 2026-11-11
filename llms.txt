@@ -13,12 +13,37 @@ Set up Retoucher for me. It lets me leave notes on my Figma layers that you pick
    - Codex: run `codex plugin marketplace add alicorak/retoucher`, then install it from /plugins and tell me to trust its hooks once
    - Cursor: run `git clone https://github.com/alicorak/retoucher.git ~/.retoucher-plugin` and `mkdir -p ~/.cursor/plugins/local && ln -s ~/.retoucher-plugin ~/.cursor/plugins/local/retoucher`, then tell me to restart Cursor
 2. Check that Node.js 18 or newer is installed and that the Figma MCP server is connected. If either is missing, tell me exactly how to fix it.
-3. Tell me to open the Retoucher plugin in Figma (Plugins → Retoucher).
-4. Start watching my Figma notes: in Claude Code run /retoucher:watch, in Codex or Cursor use the watch-figma-notes skill.
-
-Setup details: https://github.com/alicorak/retoucher#readme
+3. Add the Retoucher Figma plugin. It's waiting for Figma Community review, so it comes with the agent plugin: get the path of its manifest (Claude Code: `retoucher figma-plugin`, or `node <plugin folder>/bridge/cli.mjs figma-plugin\
 
 ## Links
 
 - [Source and docs](https://github.com/alicorak/retoucher#readme)
 - [How the agent handles a note](https://github.com/alicorak/retoucher/blob/main/skills/handle-figma-notes/SKILL.md)
+
+## Docs
+
+- [Get started](https://retoucher.alicorak.com/docs/get-started/): Set it up in a minute.
+- [Your own agent](https://retoucher.alicorak.com/docs/agents/): Claude Code, Codex, Cursor.
+- [Stays on your computer](https://retoucher.alicorak.com/docs/privacy/): Notes stay local.
+- [Notes on layers](https://retoucher.alicorak.com/docs/notes/): Write it like a comment.
+- [Areas and pins](https://retoucher.alicorak.com/docs/areas/): Drag an area or drop a pin.
+- [Several targets](https://retoucher.alicorak.com/docs/targets/): Layers across pages.
+- [Photos and files](https://retoucher.alicorak.com/docs/files/): Drop in screenshots.
+- [@mentions](https://retoucher.alicorak.com/docs/mentions/): Use your variables.
+- [Quick action](https://retoucher.alicorak.com/docs/quick-action/): ⌘/ and type.
+- [Batches](https://retoucher.alicorak.com/docs/batches/): Send a few at once.
+- [Live steps](https://retoucher.alicorak.com/docs/steps/): See it work, as it goes.
+- [Talk while it works](https://retoucher.alicorak.com/docs/talk/): Reply mid-task.
+- [Questions and plans](https://retoucher.alicorak.com/docs/questions/): Answer in the panel.
+- [Approve](https://retoucher.alicorak.com/docs/approve/): Allow once, always, or decline.
+- [Your own fonts](https://retoucher.alicorak.com/docs/fonts/): Brand fonts just work.
+- [Undo](https://retoucher.alicorak.com/docs/undo/): One click back.
+- [Versions](https://retoucher.alicorak.com/docs/versions/): Two to four directions, side by side.
+- [References](https://retoucher.alicorak.com/docs/references/): Matching screens, from any MCP.
+- [Whole page or whole file](https://retoucher.alicorak.com/docs/whole-file/): Every page at once.
+- [Your design system](https://retoucher.alicorak.com/docs/design-system/): Your library, or this file.
+- [Figma comments](https://retoucher.alicorak.com/docs/comments/): Works through them.
+- [Model and skill](https://retoucher.alicorak.com/docs/model-and-skill/): A model per note.
+- [Canvas markers](https://retoucher.alicorak.com/docs/markers/): Notes on the canvas.
+- [Select to find](https://retoucher.alicorak.com/docs/select-to-find/): Click a layer, see its note.
+- [Small mode](https://retoucher.alicorak.com/docs/small-mode/): Shrink it to a bar.
