@@ -2,7 +2,7 @@
 //   data-in="ms" / data-out="ms"   shown from / hidden from that time
 //   data-type="ms"                 its text is typed from that time
 //   data-at="ms:class;ms:-class"   classes added (or removed with -) over time
-//   data-path="ms:x,y;ms:click"    the cursor's moves and clicks
+//   data-path="ms:x,y;ms:@name;ms:click"  the cursor's moves (to a point or to data-pt=name) and clicks
 // A demo loops while it is on screen. With reduced motion it shows one still frame.
 const CHAR_MS = 38, W = 720;
 const still = matchMedia('(prefers-reduced-motion: reduce)');
@@ -18,6 +18,13 @@ function setup(demo) {
     if (el.dataset.path) it.path = events(el.dataset.path);
     return it;
   });
+  // "@name" in a path: the centre of the element marked data-pt="name", wherever the layout put it
+  const pointAt = name => {
+    const el = stage.querySelector(`[data-pt="${name}"]`);
+    if (!el || !el.getClientRects().length) return null;
+    const r = el.getBoundingClientRect(), s = stage.getBoundingClientRect(), k = s.width / W;
+    return [(r.left - s.left + r.width / 2) / k - 3, (r.top - s.top + r.height / 2) / k - 2]; // the arrow's tip
+  };
   const render = t => {
     for (const it of items) {
       if (it.in !== null || it.out !== null) it.el.classList.toggle('on', (it.in === null || t >= it.in) && (it.out === null || t < it.out));
@@ -33,7 +40,8 @@ function setup(demo) {
       if (it.path) {
         let pos = null, click = false;
         for (const [ms, v] of it.path) if (ms <= t) { if (v === 'click') click = t - ms < 180; else pos = v; }
-        if (pos) { const [x, y] = pos.split(',').map(Number); it.el.style.transform = `translate(${x}px, ${y}px)`; }
+        const xy = pos && (pos.startsWith('@') ? pointAt(pos.slice(1)) : pos.split(',').map(Number));
+        if (xy) it.el.style.transform = `translate(${xy[0]}px, ${xy[1]}px)`;
         it.el.classList.toggle('down', click);
       }
     }

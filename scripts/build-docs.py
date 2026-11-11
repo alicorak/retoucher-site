@@ -56,17 +56,18 @@ def perm(title, in_=None, out=None, label='Asks for permission'):
 
 def perm_actions(in_=None, out=None, at=None):
     return (f'<div class="perm-actions"{a(in_=in_, out=out)}><span class="pbtn">Decline</span>'
-            f'<span class="pbtn-group"><span class="pbtn">Always allow</span><span class="pbtn dark"{a(at=at)}>Allow once</span></span></div>')
+            f'<span class="pbtn-group"><span class="pbtn">Always allow</span><span class="pbtn dark" data-pt="allow"{a(at=at)}>Allow once</span></span></div>')
 
 NOTHING = ('Nothing selected', 'The note is about the page.')
 
 def composer(typed='', type_at=None, ctx=('Headline', 'Text · Home'), ctx2=None, ctx2_at=None, above='', tools=''):
-    c = f'<div class="s-ctx"{a(out=ctx2_at) if ctx2 else ""}><i></i><span>{ctx[0]}<small>{ctx[1]}</small></span></div>'
+    add = '<span class="s-add" data-pt="add">+</span>'
+    c = f'<div class="s-ctx"{a(out=ctx2_at) if ctx2 else ""}><i></i><span>{ctx[0]}<small>{ctx[1]}</small></span>{add}</div>'
     if ctx2:
-        c += f'<div class="s-ctx"{a(in_=ctx2_at)}><i></i><span>{ctx2[0]}<small>{ctx2[1]}</small></span></div>'
+        c += f'<div class="s-ctx"{a(in_=ctx2_at)}><i></i><span>{ctx2[0]}<small>{ctx2[1]}</small></span>{add}</div>'
     t = f'<span class="typed"{a(type_=type_at)}>{typed}</span>' if typed else ''
-    return (f'<div class="s-comp">{above}{c}<div class="field"><span class="ph">What should change?</span>{t}'
-            '<span class="send"><img src="../../assets/arrow-up-white.svg" width="20" height="20" alt=""></span></div>'
+    return (f'<div class="s-comp">{above}{c}<div class="field" data-pt="field"><span class="ph">What should change?</span>{t}'
+            '<span class="send" data-pt="send"><img src="../../assets/arrow-up-white.svg" width="20" height="20" alt=""></span></div>'
             f'{tools}</div>')
 
 def panel(notes, comp=None, pop=''):
@@ -74,8 +75,6 @@ def panel(notes, comp=None, pop=''):
             '<img src="../../assets/logo-claude-ok.svg" width="14" height="14" alt="">Ready</span></div>'
             f'<div class="s-notes">{"".join(notes)}</div>{comp if comp is not None else composer()}{pop}</div>')
 
-SEND = '684,402'          # the send button
-FIELD = '520,402'
 
 # ── pages ───────────────────────────────────────────────
 
@@ -154,10 +153,10 @@ page('notes', 'Write a note', 'Notes on layers', 'Write it like a comment.',
       'Notes read like a chat, newest at the bottom. Click a note to jump to its layers.',
       'The first time, paste the file\'s link when the panel asks: Figma doesn\'t tell plugins which file is open.'],
      canvas(sel(*H1_SEL, in_=900), h1_at='4600:bold')
-     + panel([top(12, 'Headline', [('working', 'Waiting', 3000, 3800), ('working', 'Working', 3800, 4600), ('ok', 'Done', 4600, None)]).replace('<div class="note-top"', '<div class="note-top"' + a(in_=3000)),
-              note('Make it bolder', 3000)],
+     + panel([top(12, 'Headline', [('working', 'Waiting', 3100, 3800), ('working', 'Working', 3800, 4600), ('ok', 'Done', 4600, None)]).replace('<div class="note-top"', '<div class="note-top"' + a(in_=3100)),
+              note('Make it bolder', 3100)],
              composer('Make it bolder', 1500, ctx2=('Headline', 'Text · Home'), ctx2_at=900))
-     + cursor(f'0:560,300;300:180,240;800:click;1300:{FIELD};2700:{SEND};2900:click'),
+     + cursor('0:560,300;300:180,240;800:click;1300:@field;2400:@send;2900:click'),
      loop=7000)
 
 page('areas', 'Write a note', 'Areas and pins', 'Drag an area or drop a pin.',
@@ -169,12 +168,12 @@ page('areas', 'Write a note', 'Areas and pins', 'Drag an area or drop a pin.',
      ['The agent gets each area\'s crop, its position, the screen it sits in and the layer underneath.',
       'Number your areas in the note (“1: less glare, 2: bolder”) when you mark more than one.',
       '<kbd>Backspace</kbd> removes the last mark.'],
-     '<div class="s-picker"><div class="bar"><span>Mark areas</span><span style="color:var(--muted);font-weight:400">Drag for an area, click for a pin</span><span class="pbtn dark" style="height:26px">Add</span></div>'
-     '<div class="stage"><div class="s-box s-grow" style="left:360px;top:60px;width:240px;height:110px"' + a(in_=600, at='700:big') + '><b>1</b></div>'
+     '<div class="s-picker"><div class="bar"><span>Mark areas</span><span style="color:var(--muted);font-weight:400">Drag for an area, click for a pin</span><span class="pbtn dark" style="height:26px" data-pt="addarea">Add</span></div>'
+     '<div class="stage"><div class="s-box s-grow" style="left:360px;top:60px;width:240px;height:110px"' + a(in_=700, at='800:big') + '><b>1</b></div>'
      '<span class="s-tag" style="left:400px;top:24px"' + a(in_=1600) + '>less glare here</span>'
-     '<div class="s-box" style="left:120px;top:250px;width:20px;height:20px;border-radius:50%"' + a(in_=2600) + '><b>2</b></div>'
+     '<div class="s-box" style="left:120px;top:250px;width:20px;height:20px;border-radius:50%"' + a(in_=2650) + '><b>2</b></div>'
      '<span class="s-tag" style="left:150px;top:252px"' + a(in_=3200) + '>bolder</span></div></div>'
-     + cursor('0:300,200;400:372,72;600:click;700:612,182;1400:612,182;2200:130,262;2500:click;3600:660,20;3800:click'),
+     + cursor('0:300,260;100:372,112;700:click;800:612,222;2000:142,312;2600:click;3200:@addarea;3800:click'),
      loop=6000)
 
 page('targets', 'Write a note', 'Several targets', 'Layers across pages.',
@@ -184,9 +183,9 @@ page('targets', 'Write a note', 'Several targets', 'Layers across pages.',
       'Write the note once and send it.'],
      ['If you add nothing, the current selection is used.',
       'Handy for “make these match”: the agent sees every target side by side.'],
-     canvas(sel(*H1_SEL, in_=600, out=1900) + sel(*CTA_SEL, in_=2400))
+     canvas(sel(*H1_SEL, in_=650, out=1900) + sel(*CTA_SEL, in_=2300))
      + panel([], composer('Make these two match', 4300, ctx=NOTHING, above='<div style="display:flex;gap:6px;flex-wrap:wrap"><span class="s-chip"' + a(in_=1500) + '><i></i>Headline · Home</span><span class="s-chip"' + a(in_=3300) + '><i></i>Order ahead · Home</span></div>'))
-     + cursor('0:400,380;300:180,240;600:click;1100:668,346;1400:click;1900:100,330;2300:click;2900:668,346;3200:click;3900:' + FIELD),
+     + cursor('0:400,380;100:180,240;650:click;900:@add;1450:click;1700:100,330;2300:click;2700:@add;3300:click;3900:@field'),
      loop=7000)
 
 page('files', 'Write a note', 'Photos and files', 'Drop in screenshots.',
@@ -199,7 +198,7 @@ page('files', 'Write a note', 'Photos and files', 'Drop in screenshots.',
      canvas(sel(*H1_SEL, in_=300))
      + '<div class="s-tag" style="left:150px;top:380px;padding:8px 10px"' + a(in_=500, out=1700) + '>moodboard.jpg</div>'
      + panel([], composer('Match the mood of this photo', 2600, ctx=('Headline', 'Text · Home'), above='<div style="display:flex;gap:6px"><span class="s-chip"' + a(in_=1700) + '><i></i>moodboard.jpg</span><span class="s-chip"' + a(in_=2200) + '>brief.pdf</span></div>'))
-     + cursor('0:180,388;500:180,388;1600:560,300;1700:click'),
+     + cursor('0:180,388;500:180,388;1100:560,300;1700:click'),
      loop=6500)
 
 page('mentions', 'Write a note', '@mentions', 'Use your variables.',
@@ -214,8 +213,8 @@ page('mentions', 'Write a note', '@mentions', 'Use your variables.',
               note('Use <span class="mention">@color/brand</span> for the button', 4400)],
              composer('Use @color/brand for the button', 900, ctx=('Order ahead', 'Button · Home')),
              pop='<div class="s-pop"' + a(in_=1250, out=2600) + '><span class="lbl">Variables</span><span class="row"><i style="background:#111"></i>color/ink</span>'
-                 '<span class="row"' + a(at='1700:hi') + '><i style="background:#1f78ff"></i>color/brand</span><span class="row"><i style="background:#f6f6f5;box-shadow:inset 0 0 0 1px #ddd"></i>color/paper</span></div>')
-     + cursor(f'0:{FIELD};2200:560,320;2400:click;3800:{SEND};4100:click'),
+                 '<span class="row" data-pt="brand"' + a(at='1700:hi') + '><i style="background:#1f78ff"></i>color/brand</span><span class="row"><i style="background:#f6f6f5;box-shadow:inset 0 0 0 1px #ddd"></i>color/paper</span></div>')
+     + cursor('0:@field;1800:@brand;2400:click;3500:@send;4100:click'),
      loop=7500)
 
 page('quick-action', 'Write a note', 'Quick action', '⌘/ and type.',
@@ -243,9 +242,9 @@ page('batches', 'Write a note', 'Batches', 'Send a few at once.',
      + panel([], composer('', None, ctx=('Headline', 'Text · Home'),
                           above='<div class="s-reply" style="max-width:none;align-self:stretch;border-radius:16px;background:var(--brand-soft);border:0"' + a(in_=1200) + '><small>Batch</small>'
                                 '<span style="display:block"' + a(in_=1200) + '>1. Make it bolder</span><span style="display:block"' + a(in_=2600) + '>2. Shorter, one line</span><span style="display:block"' + a(in_=4000) + '>3. Warmer button</span>'
-                                '<span class="pbtn dark" style="height:26px;margin-top:8px"' + a(in_=4200) + '>Send all</span></div>',
-                          tools='<div class="s-tools"><span class="grow"></span><span class="s-chip"' + a(at='1000:hi') + '>Batch</span></div>'))
-     + cursor('0:560,300;700:640,428;1000:click;2300:640,428;2500:click;3700:640,428;3900:click;4700:470,316;5000:click'),
+                                '<span class="pbtn dark" style="height:26px;margin-top:8px" data-pt="sendall"' + a(in_=4200) + '>Send all</span></div>',
+                          tools='<div class="s-tools"><span class="grow"></span><span class="s-chip" data-pt="batch"' + a(at='1000:hi') + '>Batch</span></div>'))
+     + cursor('0:560,300;450:@batch;1000:click;1950:@batch;2500:click;3350:@batch;3900:click;4400:@sendall;5000:click'),
      loop=7000)
 
 # While it works
@@ -274,10 +273,10 @@ page('talk', 'While it works', 'Talk while it works', 'Reply mid-task.',
      + panel([top(12, 'Headline', [('working', 'Working', None, None)]),
               note('Set the headline in KMR Waldenburg'),
               steps([('Finding KMR Waldenburg on your computer', None, 800), ('Changing 1 text layer', 800, None)]),
-              note('Keep the size as it is', 2600),
-              reply('Got it, I\'ll keep the size.', 3600)],
+              note('Keep the size as it is', 2900),
+              reply('Got it, I\'ll keep the size.', 3800)],
              composer('Keep the size as it is', 1100, ctx=('Headline', 'Text · Home')))
-     + cursor(f'0:{FIELD};2200:{SEND};2400:click'),
+     + cursor('0:@field;2200:@send;2800:click'),
      loop=6500)
 
 page('questions', 'While it works', 'Questions and plans', 'Answer in the panel.',
@@ -290,10 +289,10 @@ page('questions', 'While it works', 'Questions and plans', 'Answer in the panel.
      canvas(sel(*H1_SEL), h1_at='5000:bold')
      + panel([top(14, 'Hero', [('warn', 'Needs answer', None, 4200), ('working', 'Working', 4200, None)]),
               '<div class="perm" style="align-self:stretch;gap:8px"' + a(out=4200) + '><span class="mono">Asks you</span><strong>Which headline size?</strong>'
-              '<span class="opt"' + a(at='2000:on') + '><i></i>48 pt · one step down</span><span class="opt"><i></i>40 pt · two steps down</span></div>'
-              '<div class="opt-actions"' + a(out=4200) + '><span class="pbtn">Skip</span><span class="pbtn dark">Send answer</span></div>',
+              '<span class="opt" data-pt="opt1"' + a(at='1800:on') + '><i></i>48 pt · one step down</span><span class="opt"><i></i>40 pt · two steps down</span></div>'
+              '<div class="opt-actions"' + a(out=4200) + '><span class="pbtn">Skip</span><span class="pbtn dark" data-pt="answer">Send answer</span></div>',
               steps([('Setting the headline to 48 pt', 4400, None)])])
-     + cursor('0:560,420;1400:520,306;1800:click;3200:650,392;3500:click'),
+     + cursor('0:560,420;1200:@opt1;1800:click;2900:@answer;3500:click'),
      loop=7000, still=2600)
 
 page('approve', 'While it works', 'Approve', 'Allow once, always, or decline.',
@@ -311,7 +310,7 @@ page('approve', 'While it works', 'Approve', 'Allow once, always, or decline.',
               perm('Edit the Figma file', 600, 3100),
               perm_actions(600, 3100, at='2800:pick'),
               steps([('Changing 1 text layer', 3200, None)])])
-     + cursor('0:560,300;1500:672,390;2800:click'),
+     + cursor('0:560,300;1500:@allow;2800:click'),
      loop=6500, still=2400)
 
 # What it changes
@@ -341,8 +340,8 @@ page('undo', 'What it changes', 'Undo', 'One click back.',
               note('Make it bolder'),
               '<div class="s-ba"><div style="font-weight:500">Slow mornings</div><div>Slow mornings</div></div>'
               '<div style="display:flex;justify-content:space-between" class="s-mono"><span>Before</span><span style="width:50%">After</span></div>',
-              '<span class="undo" style="align-self:flex-start"' + a(out=2600) + '><img src="../../assets/rotate-ccw.svg" width="14" height="14" alt="">Undo</span>'])
-     + cursor('0:560,250;1200:460,400;2400:click'),
+              '<span class="undo" style="align-self:flex-start" data-pt="undo"' + a(out=2600) + '><img src="../../assets/rotate-ccw.svg" width="14" height="14" alt="">Undo</span>'])
+     + cursor('0:560,250;1200:@undo;2400:click'),
      loop=5500, still=1500)
 
 page('versions', 'What it changes', 'Versions', 'Two to four directions, side by side.',
@@ -354,13 +353,13 @@ page('versions', 'What it changes', 'Versions', 'Two to four directions, side by
      ['Each version is a real, editable copy, not a picture.',
       'Pick the one you like and delete the others, or keep going with a follow-up.'],
      '<div class="s-copies"><div class="s-copy"><small>Original</small><p>Slow mornings</p></div>'
-     '<div class="s-copy"' + a(in_=2600) + '><small>v1</small><p style="font-weight:800">Slow mornings</p></div>'
-     '<div class="s-copy dark"' + a(in_=3200) + '><small>v2</small><p>Slow mornings</p></div></div>'
-     + panel([top(15, 'Hero', [('working', 'Working', 2000, 3400), ('ok', 'Done', 3400, None)]).replace('<div class="note-top"', '<div class="note-top"' + a(in_=2000)),
-              note('Two moods for the hero', 2000)],
-             composer('Two moods for the hero', 900, ctx=('Hero', 'Frame · Home'),
-                      above='<div class="s-opt"><span>Versions</span><span class="s-seg"' + a(at='500:moved') + '><span class="on">1</span><span' + a(at='500:pick') + '>2</span><span>3</span><span>4</span></span></div>'))
-     + cursor(f'0:560,330;300:560,330;500:click;1700:{SEND};1900:click'),
+     '<div class="s-copy"' + a(in_=3200) + '><small>v1</small><p style="font-weight:800">Slow mornings</p></div>'
+     '<div class="s-copy dark"' + a(in_=3700) + '><small>v2</small><p>Slow mornings</p></div></div>'
+     + panel([top(15, 'Hero', [('working', 'Working', 2800, 3800), ('ok', 'Done', 3800, None)]).replace('<div class="note-top"', '<div class="note-top"' + a(in_=2800)),
+              note('Two moods for the hero', 2800)],
+             composer('Two moods for the hero', 1300, ctx=('Hero', 'Frame · Home'),
+                      above='<div class="s-opt"><span>Versions</span><span class="s-seg"' + a(at='800:moved') + '><span class="on">1</span><span data-pt="v2"' + a(at='800:pick') + '>2</span><span>3</span><span>4</span></span></div>'))
+     + cursor('0:560,300;200:@v2;800:click;2200:@send;2700:click'),
      loop=6500)
 
 page('references', 'What it changes', 'References', 'Matching screens, from any MCP.',
@@ -385,10 +384,10 @@ page('whole-file', 'Options', 'Whole page or whole file', 'Every page at once.',
       'Write the rule (“all headings above 32 pt in Druk”) and send.'],
      ['The agent goes page by page and reports what it changed.',
       'Good for sweeping changes: dark mode for every screen, a font swap, renaming layers.'],
-     '<div class="s-pages">' + ''.join(f'<div class="s-pagerow"{a(at=f"{2000 + i * 600}:done")}><i></i>{n}<em>{c} headings</em></div>' for i, (n, c) in enumerate([('Home', 4), ('Pricing', 3), ('About', 2), ('Checkout', 5), ('Account', 2)])) + '</div>'
+     cursor('0:560,300;200:@wf;800:click') + '<div class="s-pages">' + ''.join(f'<div class="s-pagerow"{a(at=f"{2000 + i * 600}:done")}><i></i>{n}<em>{c} headings</em></div>' for i, (n, c) in enumerate([('Home', 4), ('Pricing', 3), ('About', 2), ('Checkout', 5), ('Account', 2)])) + '</div>'
      + panel([top(17, 'Whole file', [('working', 'Working', 1600, 5000), ('ok', 'Done', 5000, None)]).replace('<div class="note-top"', '<div class="note-top"' + a(in_=1600)),
               note('All headings above 32 pt in Druk', 1600)],
-             composer('', None, ctx=NOTHING, above='<div class="s-opt"><span>Applies to</span><span class="s-seg"' + a(at='600:moved') + '><span class="on">Selection</span><span' + a(at='600:pick') + '>Whole file</span></span></div>')),
+             composer('', None, ctx=NOTHING, above='<div class="s-opt"><span>Applies to</span><span class="s-seg"' + a(at='800:moved') + '><span class="on">Selection</span><span data-pt="wf"' + a(at='800:pick') + '>Whole file</span></span></div>')),
      loop=7000)
 
 page('design-system', 'Options', 'Your design system', 'Your library, or this file.',
@@ -399,10 +398,11 @@ page('design-system', 'Options', 'Your design system', 'Your library, or this fi
      ['The agent builds from the file\'s components and variables, follows a Figma Spec if there is one, and uses hard-coded values only when nothing fits.',
       'Combine it with <a href="../mentions/">@mentions</a> to point at one exact component.'],
      canvas(sel(*CTA_SEL), cta_at='3800:blue')
+     + cursor('0:560,300;300:@lib;900:click')
      + panel([top(18, 'Order ahead', [('working', 'Working', 2000, 3800), ('ok', 'Done', 3800, None)]).replace('<div class="note-top"', '<div class="note-top"' + a(in_=2000)),
               note('Make this our primary button', 2000),
               reply('Swapped to <span class="mention">Button / Primary</span> from Kanso UI.', 3800)],
-             composer('', None, ctx=('Order ahead', 'Button · Home'), above='<div class="s-opt"><span>Build with</span><span class="s-select"><span' + a(out=900) + '>Any library</span><span' + a(in_=900) + '>Kanso UI</span></span></div>')),
+             composer('', None, ctx=('Order ahead', 'Button · Home'), above='<div class="s-opt"><span>Build with</span><span class="s-select" data-pt="lib"><span' + a(out=900) + '>Any library</span><span' + a(in_=900) + '>Kanso UI</span></span></div>')),
      loop=6500)
 
 page('comments', 'Options', 'Figma comments', 'Works through them.',
@@ -415,9 +415,10 @@ page('comments', 'Options', 'Figma comments', 'Works through them.',
      canvas('<span class="s-cmt" style="left:300px;top:196px">AK</span><span class="s-cmt" style="left:160px;top:300px">MS</span>'
             '<span class="s-tag" style="left:330px;top:170px"' + a(in_=300) + '>too light?</span><span class="s-tag" style="left:190px;top:330px"' + a(in_=500) + '>use the brand blue</span>',
             h1_at='3600:bold', cta_at='4400:blue')
+     + cursor('0:560,300;300:@apply;900:click')
      + panel([top(19, 'Home', [('working', 'Working', 1800, 4600), ('ok', 'Done', 4600, None)]).replace('<div class="note-top"', '<div class="note-top"' + a(in_=1800)),
               steps([('Reading 2 open comments', 1900, 3000), ('Making the headline heavier', 3000, 3600), ('Button in color/brand', 3600, 4400)])],
-             composer('', None, ctx=NOTHING, above='<div class="s-opt"><span>Comments</span><span class="s-seg"' + a(at='900:moved') + '><span class="on">Off</span><span' + a(at='900:pick') + '>Apply</span><span>Summarize</span></span></div>')),
+             composer('', None, ctx=NOTHING, above='<div class="s-opt"><span>Comments</span><span class="s-seg"' + a(at='900:moved') + '><span class="on">Off</span><span data-pt="apply"' + a(at='900:pick') + '>Apply</span><span>Summarize</span></span></div>')),
      loop=7000)
 
 page('model-and-skill', 'Options', 'Model and skill', 'A model per note.',
@@ -428,12 +429,13 @@ page('model-and-skill', 'Options', 'Model and skill', 'A model per note.',
      ['The lists come from the agent that is watching, with their full names.',
       'The Model row is hidden when the agent can\'t pick a model.'],
      canvas(sel(*H1_SEL))
+     + cursor('0:560,300;200:@model;800:click;900:@skill;1500:click')
      + panel([top(20, 'Headline', [('working', 'Working', 2400, None)]).replace('<div class="note-top"', '<div class="note-top"' + a(in_=2400)),
               note('Rewrite in our voice', 2400),
               '<div class="meta s-mono" style="text-align:right"' + a(in_=2400) + '>Claude Sonnet · skill: brand-voice</div>'],
              composer('', None, ctx=('Headline', 'Text · Home'),
-                      above='<div class="s-opt"><span>Model</span><span class="s-select"><span' + a(out=800) + '>Session default</span><span' + a(in_=800) + '>Claude Sonnet</span></span></div>'
-                            '<div class="s-opt"><span>Skill</span><span class="s-select"><span' + a(out=1500) + '>None</span><span' + a(in_=1500) + '>brand-voice</span></span></div>')),
+                      above='<div class="s-opt"><span>Model</span><span class="s-select" data-pt="model"><span' + a(out=800) + '>Session default</span><span' + a(in_=800) + '>Claude Sonnet</span></span></div>'
+                            '<div class="s-opt"><span>Skill</span><span class="s-select" data-pt="skill"><span' + a(out=1500) + '>None</span><span' + a(in_=1500) + '>brand-voice</span></span></div>')),
      loop=6000)
 
 # In Figma
@@ -460,7 +462,7 @@ page('select-to-find', 'In Figma', 'Select to find', 'Click a layer, see its not
      canvas(sel(*H1_SEL, in_=900, out=3300) + sel(*CTA_SEL, in_=3500))
      + panel(['<div' + a(at='900:s-hit;3300:-s-hit') + ' style="display:flex;flex-direction:column;gap:8px;margin:0 -14px;padding:0 14px 10px">' + top(12, 'Headline', [('ok', 'Done', None, None)]) + note('Make it bolder') + '</div>',
               '<div' + a(at='3500:s-hit') + ' style="display:flex;flex-direction:column;gap:8px;margin:0 -14px;padding:0 14px 10px">' + top(13, 'Order ahead', [('ok', 'Done', None, None)]) + note('Warmer button') + '</div>'])
-     + cursor('0:400,420;500:180,240;800:click;2900:100,330;3200:click'),
+     + cursor('0:400,420;200:180,240;850:click;2700:100,330;3300:click'),
      loop=6000)
 
 page('small-mode', 'In Figma', 'Small mode', 'Shrink it to a bar.',
@@ -471,10 +473,10 @@ page('small-mode', 'In Figma', 'Small mode', 'Shrink it to a bar.',
      ['The bar shows when a note needs your answer, or how many are in progress.',
       'Retoucher opens the way you left it.'],
      canvas()
-     + '<div class="s-mini"' + a(at='900:small;4400:-small') + '><div class="bar"' + a(in_=1300, out=4300) + '><i class="dot" style="background:var(--warn)"></i><b>1 needs an answer</b></div>'
-     '<div class="s-head"' + a(at='900:gone;4500:-gone') + '><img src="../../assets/minimize.svg" width="14" height="14" alt="" style="opacity:.5"><b>Retoucher</b><span class="status"><img src="../../assets/logo-claude-ok.svg" width="14" height="14" alt="">Ready</span></div>'
+     + '<div class="s-mini"' + a(at='900:small;4400:-small') + '><div class="bar" data-pt="bar"' + a(in_=1300, out=4300) + '><i class="dot" style="background:var(--warn)"></i><b>1 needs an answer</b></div>'
+     '<div class="s-head"' + a(at='900:gone;4500:-gone') + '><img src="../../assets/minimize.svg" width="14" height="14" alt="" style="opacity:.5" data-pt="shrink"><b>Retoucher</b><span class="status"><img src="../../assets/logo-claude-ok.svg" width="14" height="14" alt="">Ready</span></div>'
      '<div class="s-notes" style="position:absolute;inset:40px 0 0"' + a(at='900:gone;4500:-gone') + '>' + top(14, 'Hero', [('warn', 'Needs answer', None, None)]) + note('Make it calmer') + '<div class="perm" style="align-self:stretch"><span class="mono">Asks you</span><strong>Which headline size?</strong></div></div></div>'
-     + cursor('0:560,300;400:428,26;700:click;3400:560,40;3800:click'),
+     + cursor('0:560,300;200:@shrink;800:click;3200:@bar;3800:click'),
      loop=6500, still=2500)
 
 ORDER = [p['slug'] for g in GROUPS for p in P if p['group'] == g]

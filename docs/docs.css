@@ -103,7 +103,7 @@
 .s-label { position: absolute; padding: 2px 6px; border-radius: 4px; background: var(--blue); color: #fff; font: 500 10px/14px var(--inter); white-space: nowrap; }
 
 /* the cursor */
-.s-cur { position: absolute; left: 0; top: 0; z-index: 30; width: 20px; height: 20px; pointer-events: none; transition: transform 520ms var(--ease-in-out);
+.s-cur { position: absolute; left: 0; top: 0; z-index: 30; width: 20px; height: 20px; pointer-events: none; transition: transform 480ms var(--ease-in-out);
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 2l13 7-6 1.6L7.4 17z' fill='%23111' stroke='%23fff' stroke-width='1.4' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat; }
 .s-cur::after { content: ''; position: absolute; left: -7px; top: -7px; width: 18px; height: 18px; border-radius: 50%; background: rgba(31, 120, 255, 0.25); transform: scale(0.4); opacity: 0; transition: transform 180ms var(--ease-out), opacity 180ms ease; }
 .s-cur.down::after { transform: scale(1); opacity: 1; }
@@ -125,6 +125,8 @@
 .s-ctx i { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, #d3d6dc, #e7e7e9); }
 .s-ctx span { display: flex; flex-direction: column; }
 .s-ctx small { font-weight: 400; color: var(--muted); }
+.s-ctx span { flex: 1; }
+.s-add { flex: none !important; width: 28px; height: 28px; display: grid !important; place-items: center; border-radius: 50%; color: var(--muted); font: 400 18px/1 var(--geist); }
 .s-comp .field { position: relative; }
 .s-comp .field .ph, .s-comp .field .typed { flex: 1; overflow: hidden; text-overflow: ellipsis; }
 .s-comp .field:has(.typed[data-filled]) .ph { display: none; }
