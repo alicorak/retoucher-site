@@ -433,8 +433,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .mini { padding: 8px 12px; border-radius: 999px; font: 500 13px/19px var(--inter); transition: transform 160ms var(--ease-out), background-color 160ms ease; }
 .mini.dark { background: var(--text); color: #fff; }
 .mini.dark:hover { background: #2a2a2a; }
-.copy-btn { display: inline-flex; align-items: center; gap: 6px; }
-.copy-btn .ci { position: relative; width: 14px; height: 14px; }
+.card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.copy-btn { position: relative; z-index: 6; }
+.copy-btn .ci { position: relative; width: 16px; height: 16px; }
 .copy-btn .ci img { position: absolute; inset: 0; transition: opacity 150ms ease, transform 200ms var(--ease-out); }
 .copy-btn .i-done { opacity: 0; transform: scale(0.6); filter: invert(1); }
 .copy-btn.copied .i-copy { opacity: 0; transform: scale(0.6); }
@@ -506,6 +507,7 @@ button.card-link { border: 0; padding: 0; background: none; cursor: pointer; }
 @media (max-width: 1023px) {
   .cards { grid-template-columns: repeat(2, 1fr); }
   .cards-2 { grid-template-columns: 1fr; }
+  .card.card-copy { height: auto; padding-bottom: 24px; }
   .card.card-wide { height: auto; flex-direction: column; padding-bottom: 0; }
   .card-wide .card-text { max-width: none; }
   .art-playground { position: relative; right: auto; bottom: auto; width: auto; align-self: stretch; margin-right: -24px; }

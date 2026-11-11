@@ -276,10 +276,13 @@
 
       <article class="card r22 card-copy">
         <button class="card-link" type="button" data-copy-proxy aria-label="Copy setup prompt"></button>
-        <div class="card-text"><h3>Onboard your agent</h3><p>Paste it into Claude Code, Codex or Cursor.</p></div>
+        <div class="card-head">
+          <div class="card-text"><h3>Onboard your agent</h3><p>Paste it into Claude Code, Codex or Cursor.</p></div>
+          <button class="btn btn-dark copy-btn" type="button" data-copy="prompt"><span class="ci"><img class="i-copy" src="assets/copy.svg" width="16" height="16" alt=""><img class="i-done" src="assets/check.svg" width="16" height="16" alt=""></span><span data-label>Copy prompt</span></button>
+        </div>
         <div class="art art-onboard">
           <div class="setup">
-            <div class="setup-head"><span>Setup prompt</span><button class="mini dark copy-btn" type="button" data-copy="prompt" tabindex="-1"><span class="ci"><img class="i-copy" src="assets/copy.svg" width="14" height="14" alt=""><img class="i-done" src="assets/check.svg" width="14" height="14" alt=""></span><span data-label>Copy setup prompt</span></button></div>
+            <div class="setup-head"><span>Setup prompt</span></div>
             <p class="mono gray">Set up Retoucher for me: install its plugin, check that Node.js and the Figma connection are ready, then watch my Figma notes.</p>
           </div>
           <div class="reply-wrap">
