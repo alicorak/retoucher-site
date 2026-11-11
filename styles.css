@@ -86,8 +86,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .story .scene { position: absolute; left: 0; top: 0; width: 1152px; height: 576px; transform-origin: 0 0; transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(var(--k)); }
 .st-win { position: absolute; left: 72px; top: 66px; }
 .st-panel { position: absolute; left: 720px; top: 38px; }
-.st-hand { position: absolute; left: 252px; top: 392px; transform: rotate(-4deg); }
-.st-arrow { position: absolute; left: 150px; top: 312px; transform: scaleY(-1) rotate(-12deg); }
+.st-hand { position: absolute; left: 222px; top: 418px; transform: rotate(-4deg); }
+.st-arrow { position: absolute; left: 112px; top: 360px; transform: scaleY(-1) rotate(-12deg); }
 .story .hand.shown, .story .hand-arrow.shown { transition: opacity 240ms var(--ease-out); }
 .st-typed { flex: 1; overflow: hidden; text-overflow: ellipsis; }
 .pill-muted { color: var(--muted); }
@@ -99,20 +99,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .sf-icons { display: flex; align-items: center; gap: 14px; }
 .sf-dim { opacity: 0.4; display: flex; }
 .sf-url { justify-self: center; width: 260px; height: 28px; display: flex; align-items: center; justify-content: center; gap: 6px; border-radius: 8px; background: #e9e9e9; font: 500 12px/1 -apple-system, system-ui, sans-serif; color: #3a3a3a; }
-/* the page in the window: alicorak.com */
-.am { position: relative; width: 620px; height: 400px; padding: 16px 18px; background: #fff; color: #111; font: 400 8px/1.3 var(--inter); letter-spacing: 0.02em; }
-.am-top, .am-foot { display: flex; justify-content: space-between; }
-.am-nav { display: flex; gap: 10px; color: #555; }
-.am-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 26px; }
-.am-card { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-.am-card img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 2px; }
-.am-title { display: block; height: 16px; font-size: 9px; line-height: 16px; transform-origin: 0 50%; transition: transform 420ms var(--ease-in-out); width: fit-content; }
-.am.big .am-title { transform: scale(1.7); }
-.am-sub { color: #9a9a9a; font-size: 7px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: transform 420ms var(--ease-in-out); }
-.am.big .am-sub { transform: translateY(4px); }
-.am-title.selected { outline: 1.5px solid var(--blue); outline-offset: 3px; }
-.am-foot { position: absolute; left: 18px; right: 18px; bottom: 14px; text-align: left; }
-.am-foot span:last-child { text-align: right; }
+/* the page in the window: alicorak.com, two real screenshots (before and after the change) */
+.am { position: relative; width: 620px; height: 400px; background: #fff; }
+.am img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.am-after { opacity: 0; filter: blur(2px); transition: opacity 420ms ease, filter 420ms ease; }
+.am.big .am-after { opacity: 1; filter: none; }
+.am-pick { position: absolute; left: 6px; top: 251px; width: 35px; height: 11px; }
+.am-pick.selected { outline: 1.5px solid var(--blue); outline-offset: 2px; }
+
 /* chapters under the scene */
 .chapters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .chapter { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; text-align: left; }
