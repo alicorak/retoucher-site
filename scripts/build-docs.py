@@ -272,7 +272,7 @@ page('agent-and-privacy', 'Your agent & privacy', 'Retoucher brings no AI of its
                          msg('claude', 'Done. The headline is now Bold.', 3300), in_=900)), loop=6500),
       how='Claude Code: <code>/retoucher:watch</code>. Codex or Cursor: ask it to “watch my Figma notes”.',
       note='Notes live in <code>~/.retoucher</code>, shared by every agent, so you can switch agents and keep them.'),
-    S('privacy', 'Stays on your computer', 'Notes stay local.',
+    S('privacy', 'Stays on your computer', 'No server in between.',
       'The panel only talks to a bridge on your computer (<code>localhost:4747</code>). Notes, screenshots and files stay in <code>~/.retoucher</code>.',
       demo('<div class="s-wire" style="left:184px;top:214px;width:96px"></div><div class="s-wire" style="left:440px;top:214px;width:96px"></div>'
            '<div class="s-node" style="left:24px;top:170px">Figma panel<small>in your Figma</small></div>'
@@ -378,7 +378,7 @@ page('while-it-works', 'While it works', 'Follow along and steer, without leavin
                          prog([('Reading the headline', None, 0), ('Changing 1 text layer', 3200, None)])),
                     perms=bubble_perm('Edit the Figma file', in_=600, out=3100, allow_at='2800:pick'))
            + cursor('0:560,330;1500:@allow;2800:click'), loop=6500, still=2400),
-      note='No answer in 2 minutes, or the panel is closed: the agent asks in its own window. In Cursor this covers MCP tools; shell commands are approved in Cursor.'),
+      note='No answer in 2 minutes, or the panel is closed: the agent asks in its own window. Works the same in Claude Code, Codex and Cursor.'),
 ])
 
 page('results', 'Results', 'What comes back, and the way back.', [
