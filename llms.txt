@@ -13,12 +13,20 @@ Set up Retoucher for me. It lets me leave notes on my Figma layers that you pick
    - Codex: run `codex plugin marketplace add alicorak/retoucher`, then install it from /plugins and tell me to trust its hooks once
    - Cursor: run `git clone https://github.com/alicorak/retoucher.git ~/.retoucher-plugin` and `mkdir -p ~/.cursor/plugins/local && ln -s ~/.retoucher-plugin ~/.cursor/plugins/local/retoucher`, then tell me to restart Cursor
 2. Check that Node.js 18 or newer is installed and that the Figma MCP server is connected. If either is missing, tell me exactly how to fix it.
-3. Tell me to open the Retoucher plugin in Figma (Plugins → Retoucher).
-4. Start watching my Figma notes: in Claude Code run /retoucher:watch, in Codex or Cursor use the watch-figma-notes skill.
-
-Setup details: https://github.com/alicorak/retoucher#readme
+3. Add the Retoucher Figma plugin. It's waiting for Figma Community review, so it comes with the agent plugin: get the path of its manifest (Claude Code: `retoucher figma-plugin`, or `node <plugin folder>/bridge/cli.mjs figma-plugin\
 
 ## Links
 
 - [Source and docs](https://github.com/alicorak/retoucher#readme)
 - [How the agent handles a note](https://github.com/alicorak/retoucher/blob/main/skills/handle-figma-notes/SKILL.md)
+
+## Docs
+
+- [Get started](https://retoucher.alicorak.com/docs/get-started/): Two halves: an agent plugin on your computer and the panel inside Figma. Your agent installs the first one for you.
+- [Your agent & privacy](https://retoucher.alicorak.com/docs/agent-and-privacy/): Retoucher brings no AI of its own, and nothing leaves your computer.
+- [Write a note](https://retoucher.alicorak.com/docs/write-a-note/): Point at something in Figma, say what should change, send.
+- [While it works](https://retoucher.alicorak.com/docs/while-it-works/): Follow along and steer, without leaving Figma.
+- [Results](https://retoucher.alicorak.com/docs/results/): What comes back, and the way back.
+- [Options](https://retoucher.alicorak.com/docs/options/): Everything behind the Options button. The button shows what is switched on.
+- [In Figma](https://retoucher.alicorak.com/docs/in-figma/): Retoucher in the file itself.
+- [Troubleshooting](https://retoucher.alicorak.com/docs/troubleshooting/): The usual cases, and the fix.

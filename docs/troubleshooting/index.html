@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Troubleshooting · Retoucher Docs</title>
+  <meta name="description" content="The usual cases, and the fix.">
+  <meta property="og:title" content="Troubleshooting · Retoucher Docs">
+  <meta property="og:description" content="The usual cases, and the fix.">
+  <meta property="og:image" content="https://retoucher.alicorak.com/assets/og.png">
+  <link rel="canonical" href="https://retoucher.alicorak.com/docs/troubleshooting/">
+  <link rel="icon" href="../../assets/icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../docs/panel.css">
+  <link rel="stylesheet" href="../../docs/docs.css">
+</head>
+<body>
+<header class="d-top">
+  <a class="d-brand" href="../../"><img src="../../assets/icon.png" width="24" height="24" alt="">Retoucher <span>Docs</span></a>
+  <nav><a href="../../docs/get-started/">Get started</a><a href="https://github.com/alicorak/retoucher">GitHub</a><a href="../../">Home</a></nav>
+</header>
+<div class="d-wrap">
+<nav class="d-nav" aria-label="Docs"><ul><li><a href="../../docs/get-started/">Get started</a></li><li><a href="../../docs/agent-and-privacy/">Your agent & privacy</a></li><li><a href="../../docs/write-a-note/">Write a note</a></li><li><a href="../../docs/while-it-works/">While it works</a></li><li><a href="../../docs/results/">Results</a></li><li><a href="../../docs/options/">Options</a></li><li><a href="../../docs/in-figma/">In Figma</a></li><li><a href="../../docs/troubleshooting/" aria-current="page">Troubleshooting</a><ul><li><a href="../../docs/troubleshooting/#common">Common problems</a></li><li><a href="../../docs/troubleshooting/#help">Still stuck?</a></li></ul></li></ul></nav>
+<main class="d-main">
+  <div><p class="d-eyebrow">Docs <a class="d-all" href="../">· All topics</a></p><h1>Troubleshooting</h1></div>
+  <p class="d-lead">The usual cases, and the fix.</p>
+  
+  <section class="d-feat" id="common"><h2><a href="#common">Common problems</a></h2><p class="d-line">Most problems are one of these.</p><table class="d-table"><thead><tr><th>Symptom</th><th>Fix</th></tr></thead><tbody><tr><td>Panel says <em>Not connected</em></td><td>Open your agent; the plugin starts the bridge when a session starts. Check <code>curl localhost:4747/health</code>.</td></tr><tr><td>Panel says <em>Not paired</em></td><td>Another Figma panel paired first. Ask your agent to run <code>retoucher unpair</code>, then reopen the panel.</td></tr><tr><td>Notes stay <em>Waiting</em></td><td>The panel says <em>Not watching</em>: start watching (<code>/retoucher:watch</code> in Claude Code).</td></tr><tr><td>Port 4747 is in use</td><td>Your agent says so when a session starts. Free the port.</td></tr><tr><td>The agent can't edit the file</td><td>The Figma MCP isn't connected to your agent, or your Figma seat has no edit access to the file.</td></tr><tr><td>Send stays disabled</td><td>It needs a note and the file's link: paste the link when the panel asks (once per file).</td></tr></tbody></table></section><section class="d-feat" id="help"><h2><a href="#help">Still stuck?</a></h2><p class="d-line">Open an issue on <a href="https://github.com/alicorak/retoucher/issues">GitHub</a> with what the panel says and what your agent printed.</p></section>
+  <nav class="d-pn"><a href="../in-figma/"><span>Previous</span>In Figma</a></nav>
+</main>
+</div>
+<script src="../../timeline.js" defer></script>
+</body>
+</html>

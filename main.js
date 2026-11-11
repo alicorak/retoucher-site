@@ -123,3 +123,16 @@ document.querySelectorAll('.grid li').forEach(li => {
     Promise.allSettled(li.getAnimations({ subtree: true }).map(a => a.finished)).then(() => li.classList.remove('play'));
   });
 });
+
+// Hero demo: plays only while on screen. Reduced motion or a blocked autoplay gets a still instead.
+const heroVideo = document.querySelector('.hero-video');
+const showStill = () => { heroVideo.poster = 'assets/hero-demo-poster.jpg'; };
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  heroVideo.preload = 'none';
+  showStill();
+} else {
+  new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return heroVideo.pause();
+    heroVideo.play().catch(err => { if (err.name === 'NotAllowedError') showStill(); });
+  }, { threshold: 0.25 }).observe(heroVideo);
+}
