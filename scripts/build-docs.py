@@ -2,7 +2,7 @@
 """Builds docs/ (one page per feature) from the content below.
 
 Run from the site root:  python3 scripts/build-docs.py
-Each demo is a 720x450 scene; demo.js plays the data-in / data-type / data-at / data-path timeline.
+Each demo is a 720x450 scene; timeline.js plays the data-in / data-type / data-at / data-path timeline.
 """
 import html, os, re
 
@@ -510,7 +510,7 @@ def shell(title, desc, path, depth, body):
   <nav><a href="{up}docs/get-started/">Get started</a><a href="https://github.com/alicorak/retoucher">GitHub</a><a href="{up}">Home</a></nav>
 </header>
 {body}
-<script src="{up}docs/demo.js" defer></script>
+<script src="{up}timeline.js" defer></script>
 </body>
 </html>
 '''

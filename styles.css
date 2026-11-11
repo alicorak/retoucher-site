@@ -221,6 +221,27 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .frag-zoom .perm { margin-left: 8px; }
 .frag-zoom .perm-actions { padding: 0 8px; }
 
+
+/* ── Timelines: docs demos and the home cards ─────────── */
+/* timelines (timeline.js): hidden items take no room, shown ones fade in; .tl is set by the script */
+.tl [data-in]:not(.shown), .tl [data-out]:not(.shown), .tl .gone { display: none; }
+.tl [data-in].shown, .tl [data-out].shown { transition: opacity 240ms var(--ease-out), transform 240ms var(--ease-out); }
+@starting-style { .tl [data-in].shown, .tl [data-out].shown { opacity: 0; transform: translateY(6px); } }
+.pbtn { transition: transform 160ms var(--ease-out); }
+.pbtn.pick { transform: scale(0.94); }
+/* the cursor */
+.s-cur { position: absolute; left: 0; top: 0; z-index: 30; width: 20px; height: 20px; pointer-events: none; transition: transform 480ms var(--ease-in-out);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 2l13 7-6 1.6L7.4 17z' fill='%23111' stroke='%23fff' stroke-width='1.4' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat; }
+.s-cur::after { content: ''; position: absolute; left: -7px; top: -7px; width: 18px; height: 18px; border-radius: 50%; background: rgba(31, 120, 255, 0.25); transform: scale(0.4); opacity: 0; transition: transform 180ms var(--ease-out), opacity 180ms ease; }
+.s-cur.down::after { transform: scale(1); opacity: 1; }
+.steps li .ck { display: none; }
+.steps li.done .ck { display: block; }
+.steps li.done .sp { display: none; }
+.tl .area { transform-origin: 0 0; transform: scale(0.15); opacity: 0; transition: transform 600ms var(--ease-in-out), opacity 200ms ease; }
+.tl .area.big { transform: none; opacity: 1; }
+.tl .tile.v2:not(.sel) { border-color: transparent; }
+.tile.v2 { transition: border-color 200ms ease; }
+
 /* ── Sections and cards ───────────────────────────────── */
 .sec { width: var(--container); margin: 0 auto; padding-top: var(--section-top); }
 .sec-head { display: flex; flex-direction: column; gap: 8px; }
